@@ -5,3 +5,5 @@ kdt 10 lesson
 
 // add commit push 
 // pull
+
+오늘 수업은 12시까찌
