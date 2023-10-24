@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<>
+    <form>
+        <!-- input 태그 -->
+        <input type="button" value="버튼">
+        <input type="text" placeholder="ID" value="id값" disabled>
+        <input type="password" placeholder="PW">
+        <input type="checkbox" name="fruits" value="apple" checked>apple
+        <input type="checkbox" name="fruits" value="banana">banana
+        <input type="radio" name="gender" value="man">남자
+        <input type="radio" name="gender" value="woman" checked>여자
+        <input type="date" name="calendar">
+        <input type="datetime-local" name="calendar">
+
+        <!-- select 태그 -->
+        <select>
+            <optgroup label="커피">
+                <option value="americano" selected>아메리카노</option>
+                <option value="latte">카페라떼</option>
+                <option value="vanilla">바닐라라떼</option>
+            </optgroup>
+            <optgroup label="주스">
+                <option value="americano">딸기</option>
+                <option value="latte">바나나</option>
+                <option value="vanilla">오렌지</option>
+                <option value="vanilla" disabled>안먹음</option>
+
+            </optgroup>
+
+        </select>
+    </form>
+
+
+    <hr>
+
+    <!-- table 태그 -->
+    <!-- 
+        cellspacing : 테두리 간격 사이의 너비 
+        cellpadding : 셀 내부의 간격
+    -->
+    <table border="1" cellspacing="0" cellpadding="4" width="300" height="100" align="center">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>김길동</td>
+            <td colspan="2">100</td>
+        </tr>
+        <tr>
+            <td>김길동</td>
+            <td>100</td>
+            <td>010-1234-1234</td>
+        </tr>
+        <tr>
+            <td>김길동</td>
+            <td>100</td>
+            <td rowspan="2">010-1234-1234</td>
+        </tr>
+        <tr>
+            <td>김길동</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+</body>
+</html>

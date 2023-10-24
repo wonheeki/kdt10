@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+<br>
+    <!-- 주석을 달고 싶다.. -->
+    <!--주석내용을 쓰고 드래그한 후에 ctrl + / 를 누르면 주석처리됨-->
+
+    <!-- h1태그 : 문서의 제목을 나타냄 -->
+    <h1>Hello World!</h1>
+    <p>코딩 시작! 화이팅!</p>
+
+    <!-- hr : 수평선-->
+    <hr>
+    <hr/>
+
+    <!-- h1~ 6 : Heading tag -->
+    <h1>h1</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <!-- p : 본문-->
+    <!-- br(break의 약자) : 줄바꿈-->
+    <p>p태그. <br/>
+        본문을 뜻한다.
+    </p>
+
+    <!-- ul(unordered list) : 순서가 없는 리스트
+         ol(ordered list) : 순서가 있는 리스트-->
+    
+    <!-- type : 마커모양을 지정 
+            ul의 type 종류 : disc, circle(default), square, none
+            ol의 type 종류 : 1(default), A, a I, i ...
+         start : 시작 번호 
+         reversed : 역순으로
+    -->
+    <ul type ="square">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+
+    <ol type="i" start="3" reversed>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    
+    <!-- 문자 꾸미기 태그 -->
+    <b>b 태그 : 두껍게</b><br/>
+    <strong>strong 태그 : 두껍게, semantic(의미론적인 태그)</strong><br/>
+    <i>i 태그 : 이탤릭 글씨</i><br/>
+    <em>em 태그 : 강조 , 기울여서, semantic</em><br/>
+    <del>del 태그 : 중간줄</del></br/>
+    <u>u 태그 : 밑줄</u><br/>
+
+    <!-- img 태그 -->
+    <!-- 서버 이미지(웹 상에서 가져오기) -->
+    <img src="http://127.0.0.1:5500/html/cat.jpeg" alt="고양이" width="100">
+    
+
+    <!-- 상대 경로 
+        . 은 현재 있는 작업공간을 의미
+    -->
+    <img src="./cat.jpeg" alt="고양이" width="100">
+
+    <!-- 절대 경로 -->
+    <img src="\html\cat.jpeg" alt="고양이" width="100">
+
+    <hr>
+    <!-- a 태그-->
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+</body>
+</html>
