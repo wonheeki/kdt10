@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1:hover{
+            color:red;
+        }
+        a:active{
+            background-color: blue;
+        }
+        input:focus{
+            background-color: orange;
+        }
+
+
+
+           /* 1,3,5... */
+       .stripes div:nth-child(2n+1){
+        background-color: navy;
+        color:white;
+       }
+
+
+       /* 0,2,4 ... */
+       .stripes div:nth-child(2n){
+        background-color: yellow;
+       }
+       
+
+       .box::after{
+        content:"빨리" ;
+       }
+       
+       .box::before{
+        content:"택시";
+       }
+
+
+       [disabled]{
+        background-color: red;
+       }
+
+       [placeholder="이름"]{
+        background-color: orange;
+       }
+
+       *:not([placeholder]){
+        background-color: blue;
+       }
+
+     
+    </style>
+</head>
+<body>
+    <h1>가상 선택자 실습</h1>
+    <a href="https://naver.com">active 연습</a>
+    <input type="text">
+
+
+    <hr>
+
+       <!-- 조심해야할 점 
+    n에 들어갈 정수는 0부터 시작되지만 자식요소를 셀 때는 1부터 카운팅 된다. -->
+
+    <div class="stripes">
+        <!-- 1(0번째 아님) -->
+        <div>navy</div>
+        <!-- 2 -->
+        <div>yellow</div>
+        <!-- 3 -->
+        <div>navy</div>
+        <!-- 4 -->
+        <div>yellow</div>
+        <!-- 5 -->
+        <div>navy</div>
+        <!-- 6 -->
+        <div>yellow</div>
+        <!-- 7 -->
+        <div>navy</div>
+        <!-- 8 -->
+        <div>yellow</div>
+        <!-- 9 -->
+        <div>navy</div>
+        <!-- 10 -->
+        <div>yellow</div>
+        
+
+    </div>
+
+<hr>
+    <div class="box">여기요!</div>
+
+    <hr>
+
+    <input type="text" placeholder="이름">
+    <input type="password" value="pw"/>
+    <input type="text" value="010-0000-0000"/>
+    <input type="text" placeholder="핸드폰">
+    <input type ="text" placeholder="주민번호" disabled/>
+
+
+    
+</body> 
+
+</html>

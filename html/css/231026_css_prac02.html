@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .outer{
+            height:200px;
+            width:auto;
+            background-color: orange;
+        }
+
+        .inner{
+            display: inline-block;
+            width:200px;
+            height:100px;
+            margin-right:30px;
+        }
+
+        .inner.html{
+            background-color: skyblue;
+        }
+        .inner.css{
+            background-color: green;
+        }
+        .inner.js{
+            background-color: red;
+        } */
+        .orange{
+            height:200px;
+            width:auto;
+            background-color: orange;
+        }
+
+        .orange div{
+            display: inline-block;
+            width:200px;
+            height:100px;
+            margin-right:30px;
+        }
+        .orange div:nth-child(1){
+            background-color: skyblue;
+        }
+        .orange div:nth-child(2){
+            background-color: green;
+        }
+        .orange div:nth-child(3){   
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="outer">
+        <div class="inner html">html</div>
+        <div class="inner css">css</div>
+        <div class="inner js">javascript</div>
+    </div> -->
+
+    <div class="orange">
+        <div>html</div>
+        <div>css</div>
+        <div>javascript</div>
+</body>
+</html>

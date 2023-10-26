@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+    <style>
+        .inline{
+            background-color: yellow;
+            /* width:100px;  적용안됨*/
+        }
+        
+        .block{
+            background-color: orange;
+            width: 100px;
+        }
+
+        .inline-block{
+            /* inline 의 요소가 있기 때문에 너비를 지정하지 않아도 컨텐츠의 너비만큼 지정됨, 너비를 지정해주고 싶다면 width속성을 주면 됨 */
+            display: inline-block;
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- inline & block -->
+    <span class="inline">Hello</span>
+    <span class="inline">World</span>
+    <!-- <ul>
+        <span>값은</span>
+        <li>나온다</li>
+    </ul>
+    <span>
+        <div>안된다.</div>
+    </span> -->
+    <div class="block"><div>Hello block</div></div>
+    <span>span</span>
+    <div class="inline-block">world</div>
+</body>
+
+</html>

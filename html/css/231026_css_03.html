@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <style>
+        /* 가상 클래스 */
+        /* hover : 마우스 커서 올렸을 때 */
+        a:hover{
+            /* !import : 동일한 선택자를 사용하거나 속성이 겹치더라도 우선적으로 적용됨 */
+            color: white !important;
+            background-color: black;
+
+        }
+        /* active : 마우스 클릭하고 있는 동안 */
+        a:active{
+            background-color: red;
+        }
+
+        /* focus */
+        input:focus{
+            background-color: gray;
+        }
+
+        /* first-child */
+        .fruits span:first-child{
+            color:red;
+        }
+
+        /* div는 .fruits의 첫번째 자식요소가 아니기 때문에 적용이 안됨 */
+        .fruits div:first-child{
+            background-color: yellow;
+        }
+
+        /* last-child */
+        .fruits h3:last-child{
+            color:pink;
+        }
+
+        /* nth-child(n) */
+        /* .fruits의 두번째 자식요소를 선택 */
+        .fruits *:nth-child(2){
+            color:aqua;
+        }
+
+        /* nth-child(n) */
+        .fruits *:nth-child(2n){
+            /* n은 0부터 */
+            background-color: yellow;
+        }
+
+        .fruits *:nth-child(2n+1){
+            text-decoration: line-through;
+        }
+
+        /* not */
+        /* .fruits의 자식요소들 중에 span이 아닌 것들을 선택 */
+        .fruits *:not(span){
+            background-color: lightblue;
+            color: blueviolet;
+        }
+
+        /* 가상 요소 선택자 */
+        /* before */
+        .fruits::before{
+            content:"과일 목록 시작";
+        }
+
+        /* after */
+        .fruits::after{
+            /* content:"과일 목록 끝"; */
+            content:url("https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[5210008070]_20210426095034991.jpg");
+        }
+
+
+        /* 속성 선택자 */
+        [readonly]{
+            background-color: lightgray;
+
+        }
+
+        /* placeholder 속성을 제외하고 전부 선택 */
+        *:not([placeholder]){
+            /* background-color: blueviolet; */
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com">Naver</a>
+    <br>
+    <input type="text">
+
+    <hr>
+
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>자식 오렌지
+            <div>하위 오렌지</div>
+        </div>
+        <p>망고</p>
+        <h3>사과</h3>
+    </div>
+
+
+    <hr>
+
+    <input type ="text" >
+    <input type="password" readonly>
+    <input type ="text" placeholder="PW">
+</body>
+</html>
+ 
