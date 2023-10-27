@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div {
+            width: 10vw;
+            height: 10vw;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            line-height: 10vw;
+            margin: auto;
+
+        }
+
+        .parent {
+            display: flex;
+            align-items: center;
+            background-color: ivory;
+            width: 100%;
+            height: 100vh;
+        } 
+        */
+        body {
+
+            margin: 0;
+
+        }
+
+        .one {
+            width: 10vw;
+            height: 10vw;
+            background-color: blue;
+            text-align: center;
+            color: white;
+            /* div안에 있는 글을 수직으로 정렬하고 싶다면 line-height를 div높이만큼 주면 됨 */
+            line-height: 10vw;
+            /* div를 화면 중앙에 둘 때(수직정렬) 
+            위 아래의 margin을 동일하게 둔다고 생각하기(무작정 구글링해서 복붙하지말고 한 번 생각해보기*/
+            margin: calc((100vh-10vw)/2) auto;
+        }
+
+        .border {
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            border-top: 2px groove indigo;
+            border-bottom: 4px dotted rgb(255, 89, 28);
+            border-right: 1px dashed blue;
+            border-left: 3px solid yellow;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .box-sizing {
+            width:100px;
+            height:100px;
+            padding:20px;
+            border: 15px solid red;
+            background-color: orange;
+        }
+        .opacity{
+            background-color: blue;
+            width:200px;
+            height:200px;
+            margin:10px;
+        }
+        .opacity:hover{
+            /* display:none; */
+            /* visibility: hidden; */
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="parent">
+        <div>KDT</div>
+
+    </div> -->
+    <div class="one">KDT</div>
+
+    <div class="border">border실습</div>
+
+    <!-- box-sizing -->
+    <div class="box-sizing" style="box-sizing: content-box;">content box</div>
+    <div class="box-sizing" style="box-sizing: border-box;">border box</div>
+
+
+    <div class="opacity"></div>
+</body>
+
+</html>

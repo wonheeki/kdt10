@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+    html{
+        font-family:Pretendard-Regular ;
+        background-color: rgb(231, 231, 231);
+    }
+        h2{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom:30px;
+        }
+        .outer{
+            margin-top:10px;
+            width:80vw;
+            height:80vh;
+            margin:auto;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .input-box{
+            width:250px;
+        }
+
+        [type="button"]{
+            width:385px;
+        }
+       /* input{
+        margin-left:30px;
+       }
+       textarea{
+        margin-left: 30px;
+       } */
+       form{
+        margin-left:30px;
+       }
+
+       .input-box{
+        margin-left: 60px;
+       }
+       input:focus{
+        outline: 2px solid orangered;
+        border: 0px;
+    }
+    [type="checkbox"]{
+        margin-top:10px
+       }
+       textarea:focus{
+        outline: 2px solid orangered;
+        border: 0px;
+
+       }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        
+    <br>
+    <form>
+        <h2>설문조사</h2>
+        <div>이름&nbsp;&nbsp; <input type="text"  class="input-box"></div><br />
+        <div >이메일<input class="input-box" type="email" placeholder="love@example.com"></div><br />
+        <br />
+        <b>나이</b><br />
+        <input type="radio" name="age" value="10" checked>10대
+        <input type="radio" name="age" value="20">20대
+        <input type="radio" name="age" value="30">30대
+        <input type="radio" name="age" value="40">40대
+        <input type="radio" name="age" value="50">50대
+        <input type="radio" name="age" value="60">60대<br />
+        <br /><br />
+        <b>원하는 강의(복수응답 가능합니다)</b><br />
+        <input type="checkbox" name="lecture" value="html" checked>html
+        <input type="checkbox" name="lecture" value="js">javascript
+        <input type="checkbox" name="lecture" value="css">css<br />
+        <br />
+
+        <textarea rows="10" cols="50" placeholder="하고싶은 말을 써주세요:)"></textarea>
+        <input type="button" value="제출">
+    </form>
+</div>
+</body>
+</html>

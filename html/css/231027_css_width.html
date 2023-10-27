@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Width & Height</title>
+    <style>
+        .border {
+            margin: 10px;
+            border: 2px dotted red;
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            display: inline-block;
+        }
+
+        .d-none {
+            /* display: none; */
+            background-color: red;
+        }
+
+        .invisible {
+            /* visibility: hidden; */
+            background-color: orangered;
+        }
+
+        .opacity-0 {
+            /* opacity: 0; */
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background-color: aqua; width:100px; height:100px;"></div>
+    <div style="background-color: aquamarine; width:100vw; height:100px;">
+    </div>
+    <!-- max, min -->
+    <div style="background-color: orange; width:calc(30vw-100px); height:30vh; max-width: 300px; min-width: 200px;">
+    </div>
+
+    <!-- border -->
+    <div class="border"></div>
+    <div class="border" style="border-radius: 10px;"></div>
+    <div class="border" style="border-radius: 10px 20px 0 40px;"></div>
+    <div class="border" style="border-radius: 50%;"></div>
+
+    <!-- visibility -->
+    <div class="square">original</div>
+    <div class="square d-none">d-none</div>
+    <div class="square invisible">invisible</div>
+    <div class="square opacity-0">opacity-0</div>
+    <div class="square">original</div>
+
+    <hr>
+
+    <!-- overflow -->
+    <div class="square" style="overflow:scroll;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nemo et aperiam hic animi recusandae dolores
+        sequi enim nesciunt, non ipsa deleniti itaque repudiandae corrupti cupiditate, pariatur voluptas aspernatur
+        iusto.
+        Earum molestias eaque illum unde commodi sapiente? Officia, quo cumque doloribus dignissimos aperiam fugit quam
+        adipisci alias libero veniam. Aliquid odio repudiandae illum ipsam ex delectus nihil sit voluptatibus modi!
+        Suscipit ratione magnam corrupti aliquam dolorum ipsum pariatur voluptatem a consequatur iure possimus libero
+        hic animi quia ipsam, quos praesentium repellat quibusdam eum soluta dicta totam repudiandae quas. Amet,
+        numquam.
+    </div>
+    <div class="square" style="overflow: auto;">overflow Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+</body>
+
+</html>
