@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .container{
+            background-color: green;
+            width:500px;
+            height: 300px;
+            display: flex;
+
+            /* flex-direction */
+            flex-direction: row; /* default */
+            /* flex-direction: row-reverse; 
+            flex-direction: column;
+            flex-direction: column-reverse; */
+
+            /* flex-wrap */
+            flex-wrap: nowrap; /* default */
+            flex-wrap: wrap;
+            
+            /* justify-content : 주축에 대한 정렬 */
+            justify-content: flex-start; /* default */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+        }
+
+        div{
+            width:100px;
+            height:100px;
+
+        }
+
+        .item1{
+            background-color: red;
+        }
+
+        .item2{
+            background-color: yellow;
+        }
+
+
+        .item3{
+
+            /* width: 100px;
+            height: 200px; */
+            background-color: pink;
+        }
+        .item4{
+            /* width: 200px;
+            height:150px; */
+            background-color: aqua;
+        }
+        .item5{
+            /* width:300px;
+            height:400px; */
+            background-color: coral;
+        }
+
+        /* ailign-items */
+        .align-items{
+            align-items: flex-start;
+            /* align-items: flex-end; */
+            /* align-items:center; */
+            align-content:flex-start;
+            align-content:flex-end;
+            align-content:center;
+        }
+        
+
+        /* wrap이 있는 경우에만 align-content를 사용할 수 있음 */
+    </style>
+</head>
+
+<body>
+    <!-- 
+    flex 
+    부모 요소가 flex인 후손 요소들은 다 inline-block 처리가 된다.
+    inline-block이 자식요소 또는 후손요소들에 준다면 flex는 부모요소에 주는 값
+    -->
+    <div class="container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item1">3</div>
+        <!-- <div class="item2">4</div>
+        <div class="item1">5</div>
+        <div class="item2">6</div> -->
+    </div>
+    <hr>
+    <div class="container align-items" >
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+    </div>
+</body>
+
+</html>

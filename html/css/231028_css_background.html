@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background</title>
+    <style>
+        div{
+            background-color: orange;
+            width: 500px;
+            height: 500px;
+            
+        }
+        .background-img{
+            background-image: url("img.png");
+            /* backgrounnd-repeat */
+            background-repeat: repeat; /* default */
+            background-repeat:repeat-x;
+            background-repeat:repeat-y;
+            background-repeat:no-repeat;
+
+            /* background-position */
+            /* background-position: left; */
+            /* background-position: left top; */
+            /* background-position: center; */
+            /* background-position: 10px 100px; */
+            background-position: 100px;
+
+            /* background-size */
+            background-size: auto; /* default 값*/
+            background-size : 100px;
+            background-size: 100px 50px;
+            background-size:cover;
+            background-size: contain;
+        }
+        .background-attach{
+            background-image: url("img.png");
+            background-size:100px;
+            overflow: scroll;
+            /* background-attachment */
+            /* background-attachment: local; */
+            background-attachment: scroll;
+            /* background-attachment: fixed; */
+
+            /* scroll과 fixed의 차이 잘 모르겠음
+            scroll은 .background-attach 이미지 밖에서 스크롤 했을 때 함께 스크롤 됨. 이미지가 요소를 따라서 스크롤된다(?)
+            fixed는 viewport 기준으로 고정(.background-attach 이미지 밖에서 스콜했을 때 사진이 고정되어있음)
+            */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="background-img"></div>
+    <div class="background-attach" style="width:300px; height:300px;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi natus doloribus odio omnis enim deserunt earum vel eveniet nulla, repudiandae numquam minus, eligendi illo maxime, at placeat animi ipsam voluptates?
+    Labore vitae debitis error recusandae quisquam dolor mollitia alias ducimus, eveniet iste sapiente qui odio voluptates omnis voluptatem eligendi voluptatum nesciunt temporibus deleniti neque aliquam? Necessitatibus adipisci itaque hic ea?
+    Tempora obcaecati cumque aperiam reiciendis cum architecto velit officiis ducimus numquam enim a nostrum quia excepturi porro soluta culpa harum quibusdam labore saepe dicta vitae, expedita ipsa? Vel, magnam placeat!
+    Dolores totam harum magnam sit cum fugiat, sed quas, nam iste rerum provident at vero odio voluptatem qui ullam adipisci voluptas suscipit error quae consequatur. Cumque necessitatibus deserunt modi! Quod.</div>
+</body>
+</html>
