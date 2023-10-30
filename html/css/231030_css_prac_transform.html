@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            width: 800px;
+            height:500px;
+            background-color: lightgray;
+        }
+        img{
+            width: 300px;
+            height:200px;
+            transform: skewY(20deg);
+        }
+        .img1{
+            position:absolute;
+            z-index:3;
+            top:150px;
+            left:150px;
+        }
+        .img2{
+            position:absolute;
+            z-index:2;
+            top:150px;
+            left:250px;
+        }
+        .img3{
+            position:absolute;
+            z-index:1;
+            top:150px;
+            left:400px;
+        }
+        .img4:hover{
+            transform:scale(2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- x 축으로 맞추면 위아래가 수평으로 맞춰져있음 -->
+    <!-- y 축으로 맞추면 양옆이 수평으로 맞춰져있음 -->
+    <div class="container">
+    <img class="img1" src="https://image.zdnet.co.kr/2019/03/12/jtwer_ce9J354DQXNVoU.jpg" >
+    <img class="img2" src="https://www.itworld.co.kr/files/itworld/ITW_202306_02/apple-products-iphone-watch-ipad-100942640-large.jpg">
+    <img class="img3" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Apple_Store_LA.jpg">
+    <img class="img4" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Apple_Store_LA.jpg">
+</div>
+</body>
+</html>

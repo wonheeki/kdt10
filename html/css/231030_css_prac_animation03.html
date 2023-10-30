@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .background{
+      width:800px;
+      height:500px;
+      background-color:skyblue;
+      position:absolute;
+      animation:10s back;
+    }
+    img{
+      position:absolute;
+    }
+    .city{
+      width:400px;
+      top:250px;
+      left:200px;
+    }
+    .sun{
+      position:absolute;
+      width:150px;
+      top:30px;
+      left:30px;
+      animation :20s sun;
+      content: url("img/sun.png");
+    }
+    /* .moon{
+      width:110px;
+      top:40px;
+      left:40px;
+    } */
+    .cloud1{
+      width:150px;
+      top:170px;
+      translate: 50px;
+      animation-name:cloud1;
+      animation-duration: 15s;
+      animation-iteration-count: 20;
+
+    }
+    .cloud2{
+      width:100px;
+      top:190px;
+      left:500px;
+      /* translate: 50px; */
+      animation-name:cloud2;
+      animation-duration: 7s;
+      animation-iteration-count: 20;
+    }
+
+    @keyframes back {
+      0%{
+        background-color: rgb(102, 85, 135);
+      }
+      10%{
+        background-color: rgb(110, 161, 203);
+      }
+      20%{
+        background-color: rgb(183, 219, 248);
+      }
+      30%{
+        background-color: rgb(250, 223, 237);
+      }
+      40%{
+        background-color: rgb(249, 193, 222);
+      }
+      50%{
+       background-color: rgb(202, 93, 149);
+      }
+      60%{
+        background-color: rgb(129, 39, 85);
+      }
+      80%{
+        background-color: rgb(124, 83, 45);
+      }
+      100%{
+        background-color: rgb(102, 85, 135);
+      }
+    }
+
+    @keyframes cloud1{
+      0%{
+          translate:20px;
+      }
+      50%{
+        translate:550px;
+        opacity: 0;
+
+      }
+      100%{
+        translate:20x;
+      }
+    }
+    @keyframes cloud2{
+      0%{
+          /* translate:-20px; */
+      }
+      50%{
+        translate:-550px;
+        opacity: 0;
+
+      }
+      100%{
+        translate:-20x;
+      }
+    }
+    @keyframes cloud1{
+      0%{
+          translate:20px;
+      }
+      50%{
+        translate:550px;
+        opacity: 0;
+
+      }
+      100%{
+        translate:20x;
+      }
+    }
+
+    @keyframes sun {
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        opacity: 0;
+      }
+      50%{
+        opacity:0.5;
+        content: url("img/moon.png");
+      }
+      75%{
+        opacity:1;
+      }
+      100%{
+        transform: rotate(360deg);
+        opacity:0.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+    <div class="background">
+      <img class="city" src="img/city.png">
+      <div class="sun"></div>
+      <div class="moon"></div>
+      <!-- <img class="sun" src="img/sun.png">
+      <img class="moon" src="img/moon.png"> -->
+      <img class="cloud1" src="img/cloud.png">
+      <img class="cloud2" src="img/cloud.png">
+    </div>
+</body>
+
+</html>

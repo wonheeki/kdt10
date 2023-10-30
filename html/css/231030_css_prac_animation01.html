@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border-radius: 50%;
+            background-color: pink;
+            position:absolute;
+            width: 100px;
+            height: 100px;
+            animation-name: circle;
+            animation-duration: 3s;
+            animation-iteration-count: 6;
+            animation-timing-function: ease;
+            /* animation-delay: 3s; */
+        }
+
+        @keyframes circle {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+            25% {
+                left: 100px;
+                top:0;
+                /* top:100px; */
+            }
+            50% {
+                left: 100px;
+                top: 100px;
+            }
+            75% {
+                left: 0px;
+                top: 100px;
+            }
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

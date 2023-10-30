@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      /* width:100px;
+      height:100px;
+      background-color: aqua; */
+      position: absolute;
+      /* animation : name duration timing-function delay
+      iteration-count direction fill-mode; */
+      /* animation-name: slide;
+      animation-duration: 2s;
+      animation-iteration-count: 3;
+      animation-timing-function: ease;
+      animation-delay: 1s;
+      top: 0px;
+      right: 0px; */
+      animation: 3s slide;
+    }
+
+    @keyframes slide {
+
+      /* 0% {
+        margin-left: 100%;
+        width: 300%;
+      }
+
+      100% {
+        margin-left: 0%;
+        width: 100%;
+      } */
+      from{
+        margin-left:100%; /* 내용이 안보이게 처리 */
+        width: 300%; /* p태그 같은 경우엔 글 내용이 브라우저만큼 움직임. 처음에 한 줄씩 들어오게 하기 위해서 300%로 준 것 */
+
+      }
+      to{
+        margin-left:0%; /* 안보이게 처리한 내용을 다시 보이게 */
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <p>“As I relax on the sofa and gaze around a room a thought hits me: this is exactly the place I’ve been looking for
+    all my life. A little hideaway in some sinkhole somewhere. I’d always thought of it as a secret, imaginary place,
+    and can barely believe that it actually exists. I close my eyes and take a breath, and wonder of it all settles over
+    me like a gentle cloud.”</p>
+
+    <div>
+      <div></div>
+    </div>
+</body>
+
+</html>
