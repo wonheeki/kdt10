@@ -1,0 +1,112 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 마스터1</title>
+
+    <link rel="stylesheet" href="./header.css" />
+    <style>
+      h4 {
+        text-align: center;
+        background-color: pink;
+        color: aliceblue;
+      }
+      .header1 > span{
+        /* display: flex; */
+        /* justify-content: flex-start; */
+        position:absolute;
+        margin-left : 20px;
+        font-weight: bold;
+      }
+      .header1{
+        background-color: rgb(224, 224, 224);
+        width: 100%;
+        height:auto;
+      }
+      .header1 > .menus{
+        display: flex;
+        /* position: absolute; */
+        /* flex-direction: top right; */
+        justify-content: flex-end;
+      }
+      .header1 >.menus li{
+        list-style-type: none;
+        font-weight: bold;
+        margin-right:20px;
+        /* display: inline-block; */
+        /* position: absolute; */
+        /* display: ; */
+      }
+      .header2{
+        background-color: rgb(224, 224, 224);
+        width: 100%;
+        height:auto;
+      }
+
+      .header2 > .menus{
+        display: flex;
+        position: absolute;
+        justify-content: space-around;
+      }
+
+      .header2 > .menus li{
+        list-style-type: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flex를 이용해 여러 종류의 Header를 만들어보자!</h1>
+
+    <!-- header1 -->
+    <header class="header1">
+      <span>LOGO</span>
+      <ul class="menus">
+        <li>MENU1</li>
+        <li>MENU2</li>
+        <li>MENU3</li>
+      </ul>
+    </header>
+
+    <!-- header2 -->
+    <header class="header2">
+      <ul class="menus">
+        <li>MENU1</li>
+        <li>MENU2</li>
+        <li>MENU3</li>
+      </ul>
+    </header>
+
+    <!-- header3 -->
+    <header class="header3">
+      <span>LOGO</span>
+      <ul>
+        <li>MENU1</li>
+        <li>MENU2</li>
+        <li>MENU3</li>
+      </ul>
+      <span>LOGIN</span>
+    </header>
+
+    <h4>header 4는 선택입니다!</h4>
+    <!-- header4 -->
+    <header class="header4">
+      <div class="menu-left">
+        <span>LOGO</span>
+        <ul>
+          <li>MENU1</li>
+          <li>MENU2</li>
+          <li>MENU3</li>
+        </ul>
+      </div>
+      <ul class="menu-right">
+        <li>LOGIN</li>
+        <li>SIGNUUP</li>
+      </ul>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        자료형 
+        - 기본
+            - string
+            - number 
+            - boolean 
+            - null
+            - undefined
+        - 객체 
+            - array
+            - object
+            */
+
+            // 1. String
+            let myName = "길동";
+            let email = "gildong@naver.com";
+            let city ="서울";
+
+            console.log(myName);
+            console.log(email);
+            console.log(city);
+
+            // 문자와 변수를 동시에 출력
+            console.log('내 이름은', myName, '입니다'); // , 를 사용하면 각각의 값들이 한 칸씩 띄어서 나옴
+            console.log('내 이름은' +myName + '입니다'); // +는 각각의 값들이 띄어쓰기 없이 출력됨
+            // 백틱 사용(`)
+            console.log(`내이름은 ${myName} 입니다`);
+            let gildong = `내 이름은 ${myName}입니다`;
+            console.log(gildong);
+
+            // 2. number
+            let number = 123;
+            let opacity = 0.7;
+            console.log(number);
+            console.log(opacity);
+
+            // NaN : not a number의 약자
+            console.log('apple'-3); // NaN
+            console.log('123'-3); // console.log에서 변환을 해서 120으로 나옴
+
+            // 3. boolean
+            let checked = true;
+            let isShow = false;
+
+            console.log(checked);
+            console.log(isShow);
+
+            // 4. undefined
+            let undef;
+            console.log(undef);
+
+            // 5. null 
+            let empty = null;
+            console.log(empty);
+
+            // 6. array
+            let fruits =['orange','pineapple','grape','apple'];
+            let data = [1,'gildong',false, null, undef];
+
+            console.log(fruits)
+            console.log(data)
+
+            console.log(fruits[0],fruits[1]);
+
+            // 2차원 배열 : [ [],[],[] ]
+            
+            // 배열 함수 
+
+            // push() : 맨 뒤에 값 추가
+            fruits.push('strawberry');
+            console.log(fruits);
+
+            // pop() : 맨 뒤에 값 빼기
+            fruits.pop();
+            console.log(fruits);
+
+            // unshift() : 
+            fruits.unshift('orange');
+            console.log(fruits);
+
+            // shift() : 
+            fruits.shift('orange');
+            console.log(fruits);
+
+            // indexof : 따옴표 안의 값의 index
+            console.log(fruits.indexOf('orange'));
+
+            // includes : 따옴표 안의 값이 fruits 배열 안에 존재하는가
+            console.log(fruits.includes('orange'))
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
