@@ -73,7 +73,6 @@
             // 2차원 배열 : [ [],[],[] ]
             
             // 배열 함수 
-
             // push() : 맨 뒤에 값 추가
             fruits.push('strawberry');
             console.log(fruits);
@@ -90,11 +89,73 @@
             fruits.shift('orange');
             console.log(fruits);
 
-            // indexof : 따옴표 안의 값의 index
+            // indexOf : 따옴표 안의 값의 index
             console.log(fruits.indexOf('orange'));
 
             // includes : 따옴표 안의 값이 fruits 배열 안에 존재하는가
             console.log(fruits.includes('orange'))
+            console.log(fruits.includes('peach'))
+
+            // 7. object
+            let cat = {
+                name : '나비',
+                age : 1,
+                isCute : true,
+                // 함수도 객체 안에 넣을 수 있음
+                mew:function(){
+                    console.log('냐옹')
+                    return '냐용'
+                }
+            }
+            console.log(cat)            
+            console.log(cat.name)
+            console.log(cat.age)
+            console.log(cat.isCute)
+            console.log(cat.mew())
+
+            // typeof : array와 null을 구분하지 못한다. object로 출력됨
+            console.log(typeof "문자")
+            console.log(typeof 123);
+            console.log(typeof true);
+            console.log(typeof cat);
+            console.log(typeof fruits);
+            console.log(typeof null);
+            console.log('typeof를 array나 null에 사용하면' + typeof {} + ' 결과를 얻을 수 있다.')
+
+            // 형변환
+
+            // prompt로 받은 값은 문자로 저장이 됨(형변환 필요!)
+            // let mathScore = prompt('수학 점수를 입력해주세요');
+            // let engScore = prompt('영어 점수를 입력해주세요');
+
+            // let avg = (mathScore+engScore)/2;
+            // console.log(avg);
+
+            //1. 값 -> 문자 String()
+            let str1 = true;
+            let str2 = 123;
+            let str3 = null;
+
+            console.log(typeof String(str1));
+            console.log(typeof String(str2));
+            console.log(typeof String(str3));
+            // console.log(typeof str3.toString()) 
+            // null값에 toString 사용시 에러가 발생(toString은 .을 찍어서 사용함 .은 갖고있다는 의미로 생각하기 str3에 toString()이 없다라고 생각하기)
+
+            // 2. 값 - 숫자 Number()
+            let n1 = true; // 1
+            let n2 = false; // 0
+            let n3 = '123.9';
+            
+            console.log(typeof Number(n1)) 
+            console.log(typeof Number(n2))
+            console.log(typeof Number(n3))
+            console.log(typeof Number('hello'))
+
+            console.log(Number(n1))
+            console.log(Number(n2))
+            console.log(Number(n3))
+            console.log(Number('hello')) // NaN : not a number
 
     </script>
 </head>
