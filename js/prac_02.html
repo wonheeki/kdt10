@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1번
+        function multify(num1, num2){
+            return Number(num1) * Number(num2);
+            // return num1*num2;
+        }
+
+        console.log(multify(3,7))
+        console.log(multify('3',9))
+
+        // 2번
+        function square(num){
+            let a = Number(num)
+            console.log(num*num)
+        }
+
+        square(4)
+        square(19)
+
+        // 3번
+        // 전역변수랑 지역변수
+        // 범위가 전역변수 > 지역변수
+        // but 지역변수 좀 더 특별한 것
+
+        let a = prompt('첫번째 숫자를 입력하세요')
+        let b =prompt('두번째 숫자를 입력하세요')
+        a = Number(a)
+        b = Number(b)
+        function add(){
+            alert(a+b)
+
+        }
+        function sub(){
+            alert(a-b)
+            // return Number(a)-Number(b)
+        }
+        function divide(){
+            alert(a/b)
+            // return Number(a)/Number(b)
+        }
+        function mul(){
+            alert(a*b)
+            // return Number(a)*Number(b)
+
+        }
+
+    </script>
+    <style>
+        button {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="add();">add</button>
+    <button onclick="sub();">sub</button>
+    <button onclick="divide();">divide</button>
+    <button onclick="mul();">mul</button>
+</body>
+
+</html>

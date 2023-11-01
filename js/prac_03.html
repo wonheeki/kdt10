@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 4번, 5번
+
+        let age = prompt('나이를 입력하세요.')
+        let gender = prompt('성별을 입력하세요 (남/여)')
+        age = Number(age);
+        if (gender == '여') {
+            if (age >= 20) {
+                console.log('성인 여자') // 안에 내용이 한 줄이라면 중괄호 생략가능
+            } else if (age >= 17) {
+                console.log('고등 여학생')
+            } else if (age >= 14) {
+                console.log('중등 여학생')
+            } else if (age >= 8) {
+                console.log('초등 여학생')
+            } else {
+                console.log('유아(여)')
+            }
+        } else {
+            if (age >= 20) {
+                console.log('성인 남자')
+            } else if (age >= 17) {
+                console.log('고등 남학생')
+            } else if (age >= 14) {
+                console.log('중등 남학생')
+            } else if (age >= 8) {
+                console.log('초등 남학생')
+            } else {
+                console.log('유아(남)')
+            }
+        }
+
+
+        // 6번
+        let now = new Date().getHours();
+
+        now >= 0 && now<12 ? console.log('오전'): console.log('오후')
+
+       
+    </script>
+    
+</head>
+
+<body>
+
+</body>
+
+</html>
