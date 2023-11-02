@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fruits =['apple','banana','orange','melon','grape'];
+        console.log('for basic')
+        for(let i = 0; i<fruits.length; i++){
+            console.log(fruits[i])
+        }
+
+        console.log('for of');
+        for(let fruit of fruits){
+            console.log(fruit);
+        }
+
+        console.log('forEach');
+        fruits.forEach((fruit,index, arr) => {
+            console.log('fruit :',fruit);
+            console.log('index :',index);
+            console.log('arr :',arr);
+        })
+
+        // index, arr 생략가능
+        // 단, 순서는 지켜줘야되기 때문에 arr를 쓰고 싶다면 index arr을 같이 써야함
+        fruits.forEach((fruit) => {
+            console.log('fruit :',fruit);
+        })
+
+
+        // filter : 전체 요소를 반복해서 조건에 부합하는 배열 요소만을 반환
+        console.log('filter')
+        let filterResult = fruits.filter((fruit) => {
+            return fruit.includes('p');
+        })
+        console.log('filterResult : ', filterResult)
+        let filterResult2 = fruits.filter(fruit =>fruit.includes('p'))
+        console.log('filterresult : ',filterResult2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

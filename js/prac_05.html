@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1번
+        let num100 = []
+        for (let i = 1; i <= 100; i++) {
+            num100.push(i)
+        }
+
+        let forSum = 0
+        let eachSum = 0
+        let forOf = 0
+        for (let i = 0; i < num100.length; i++) {
+            forSum += num100[i];
+        }
+        console.log('for : ', forSum)
+
+
+        for (let num of num100) {
+            forOf += num;
+        }
+        console.log('for Of : ', forOf)
+
+        num100.forEach((num) => {
+            eachSum += num
+        })
+        console.log('for Each : ', eachSum)
+
+
+        // 2번
+        let fruits1 = ["사과", "딸기", "파인애플", "수박", "참외", "오렌지", "자두", "망고"];
+        let fruits2 = ["수박", "사과", "참외", "오렌지", "파인애플", "망고"]
+
+
+        // let same =[]
+        // let diff=[]
+        // for (let i = 0; i < fruits1.length; i++) {
+        //     if (fruits2.includes(fruits1[i])) {
+        //         same.push(fruits1[i])
+        //     } else {
+        //         diff.push(fruits1[i])
+        //     }
+        // }
+
+
+        let same = fruits1.filter(fruit => fruits2.includes(fruit))
+
+        console.log(same)
+
+        let diff = fruits1.filter(fruit => !fruits2.includes(fruit))
+
+        console.log(diff)
+
+        // let filterResult = fruits.filter((fruit) => {
+        //     return fruit.includes('p');
+        // })
+        // console.log('filterResult : ', filterResult)
+        // let filterResult2 = fruits.filter(fruit =>fruit.includes('p'))
+        // console.log('filterresult : ',filterResult2)
+
+
+        // return 값 잘 써주기 
+        // undefined가 발생한 원인 : return값을 안써줘서..
+        function solution(n) {
+
+            // const watermelon='수박';
+            // // // n : 2 '수박수박'
+            // // // n : 3 '수박수박수박'
+            // // answer = watermelon.repeat(Number(n)).slice(0,n);
+            // // return answer;
+
+            // let repeatNum = Number(n)/2;
+            // // n :2 '수박'
+            // // n : 3 '수박'
+            // answer = watermelon.repeat(repeatNum);
+            // if(i %2 ==0){
+            //     answer += '수';
+            // }
+
+
+            var answer = '';
+            for (let i = 1; i <= n; i++) {
+                if (i % 2 != 0) {
+                    answer += '수';
+                } else {
+                    answer += '박';
+                }
+            }
+            return answer;
+        }
+
+        function solution2(n) {
+            
+
+            // 입력받은 숫자 하나하나 찢어서 배열로 넣기
+
+            var answer = 0;
+            let arr=[]
+            n = String(n)
+            arr = n.split('')
+            for(let i =0;i<arr.length;i++){
+                answer+=arr[i]
+            }
+
+            return answer;
+        }
+        // solution2(123)
+        // console.log(123);
+
+
+
+        function solution3(numbers) {
+    var answer = 0;
+    let arrSam =[0,1,2,3,4,5,6,7,8,9]
+    let arr = numbers.filter(num => !arrSam.includes(num))
+
+    for(let i =0;i<arr.length;i++){
+        answer+=Number(arr[i])
+    }
+    return answer;
+}
+console.log(solution([1,4,6,7,5]))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
