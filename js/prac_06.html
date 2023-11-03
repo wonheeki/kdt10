@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<form>
+    값1 :<input type="text" id="num1"><br>
+    값2 :<input type="text" id="num2"><br>
+    연산자 :<input type="text" id="operater"><br>
+    결과 :<input type="text" id="result"><br>
+    <button onclick="calc();">계산하기</button>
+    <button onclick="reset();">초기화</button>
+</form>
+    <script>
+        function calc() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            let operater = document.getElementById('operater').value;
+
+            let result = 0;
+            switch (operater) {
+                case '+':
+                    result = Number(num1) + Number(num2);
+                    break;
+                case '-':
+                    result = Number(num1) - Number(num2);
+                    break;
+                case '*':
+                    result = Number(num1) * Number(num2);
+                    break;
+                case '/':
+                    result = Number(num1) / Number(num2);
+                    break;
+            }
+
+            document.getElementById('result').value =result;
+        }
+
+        function reset(){
+            document.getElementById('num1').value="";
+            document.getElementById('num2').value="";
+            document.getElementById('operater').value="";
+            document.getElementById('result').value="";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 다른 노드 접근하기</title>
+</head>
+<body>
+    <div id ="container">
+        <div class="box" id ="green">1</div>
+        previous 테스트
+        <!-- 주석 previous 테스트 -->
+        <div class="box" id="red">2</div>
+        next 테스트
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <button onclick="getParent();">getParent</button>
+    <button onclick="pElsibling();">pElsibling</button>
+    <button onclick="pNosibling();">pNosibling</button>
+    <button onclick="nElsibling();">nElsibling</button>
+    <button onclick="nNosibling();">nNosibling</button>
+    
+    <script>
+        let container = document.getElementById('container');
+        let greenBox = document.getElementById('green');
+        let redBox = document.getElementById('red');
+
+        console.log('children : ' ,container.children);
+
+        // parentNode : 부모 요소를 가져온다
+        function getParent(){
+            console.log(greenBox.parentNode);
+        }
+
+        // 이전 형제
+        // element 값을 기준으로 보여줄 것인지
+        function pElsibling(){
+            console.log(redBox.previousElementSibling);
+        }
+
+        //
+        function pNosibling(){
+            console.log(redBox.previousSibling);
+        }
+
+        // 다음 형제
+        function nElsibling(){
+            console.log(redBox.nextElementSibling);
+        }
+
+        //
+        function nNosibling(){
+            console.log(redBox.nextSibling);
+        }
+    </script>
+</body>
+</html>

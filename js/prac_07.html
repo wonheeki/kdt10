@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content{
+            width:500px;
+        }
+        table{
+            border:1px solid black;
+
+        }
+    </style>
+
+
+    <script>
+        function writeTable(){
+            let tr = document.createElement('tr');
+            td.innerText = '새로 추가된 리스트';
+
+            // append() : 요소.append() 선택한 요소의 맨 뒤 자식 요소로 추가
+            let table = document.querySelector('table');
+            table.append(td);
+            table.append(td);
+            table.append(td);
+        }
+        
+    </script>
+</head>
+<body>
+    <p>방명록입니다.</p>
+    작성자<input type="text" id="writer"><br>
+    내용<input type="text" id="content"><br><br>
+    <button onclick="writeTable()">작성</button><br><br>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+</body>
+</html>
