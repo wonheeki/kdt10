@@ -9,16 +9,18 @@
 
 <body>
 
-<form>
     값1 :<input type="text" id="num1"><br>
     값2 :<input type="text" id="num2"><br>
     연산자 :<input type="text" id="operater"><br>
     결과 :<input type="text" id="result"><br>
     <button onclick="calc();">계산하기</button>
     <button onclick="reset();">초기화</button>
-</form>
     <script>
         function calc() {
+            // 값1, 값2, 연산자에 대한 값을 읽어와야 함
+            // 각각의 요소들을 1) 선택하고 2) 값을 가져오기
+
+            // 1) 요소 선택 2) 값 가져오기
             let num1 = document.getElementById('num1').value;
             let num2 = document.getElementById('num2').value;
             let operater = document.getElementById('operater').value;
@@ -40,9 +42,14 @@
             }
 
             document.getElementById('result').value =result;
+
+            // let resVal = document.getElementById('result').value;
+            // resVal = result ; // 안됨 -> 'text'값으로 존재, 요소 X
         }
 
         function reset(){
+            // let v1 =document.getElementById('num1');
+            // v1.setattribute('value', '');
             document.getElementById('num1').value="";
             document.getElementById('num2').value="";
             document.getElementById('operater').value="";

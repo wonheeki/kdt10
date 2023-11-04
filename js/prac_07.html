@@ -15,26 +15,14 @@
     </style>
 
 
-    <script>
-        function writeTable(){
-            let tr = document.createElement('tr');
-            td.innerText = '새로 추가된 리스트';
 
-            // append() : 요소.append() 선택한 요소의 맨 뒤 자식 요소로 추가
-            let table = document.querySelector('table');
-            table.append(td);
-            table.append(td);
-            table.append(td);
-        }
-        
-    </script>
 </head>
 <body>
     <p>방명록입니다.</p>
     작성자<input type="text" id="writer"><br>
     내용<input type="text" id="content"><br><br>
     <button onclick="writeTable()">작성</button><br><br>
-    <table border="1" cellspacing="0">
+    <table border="1" cellspacing="0" id="table">
         <tr>
             <th>번호</th>
             <th>작성자</th>
@@ -42,5 +30,90 @@
             <th>작성일</th>
         </tr>
     </table>
+
+    <script>
+
+        // 전역변수 num이라는 변수 만들기
+        // 전역변수 : 어디서든 script 태그 안에서 사용 가능
+        let num =1;
+        function writeTable(){
+
+
+            // 작성자, 내용 요소 선택, 값 가져오기
+            let writer = document.getElementById('writer').value;
+            let content = document.getElementById('content').value;
+            let date = new Date();
+
+            // let rowInsert = "<tr><td>";
+            //     rowInsert+=String(num);
+            //     rowInsert+="</td><td>";
+            //     rowInsert+=writer;
+            //     rowInsert+="</td><td>";
+            //     rowInsert+=content;
+            //     rowInsert+="</td><td>";
+            //     rowInsert+=date;
+            //     rowInsert+="<tr></tr>"
+                    
+
+            //     let table = document.querySelector('table');
+            //     table.innerHTML+=rowInsert;
+
+
+                // 테이블 추가
+                
+                // append()로 테이블 추가하기
+                // 여러개의 자식을 추가할 경우 : 거꾸로 추가해주면 된다
+                // td 만들기 -> td를 tr에 추가 -> (tr > td) 이 tr을 통째로 table에 추가
+
+                let table = document.getElementById('table');
+                // 새로운 요소 만들기(tr, td -4개 -번호, 작성자, 내용, 작성일)
+
+                let garo = document.createElement('tr'); // <tr></tr>
+                 
+                // td 4개 만들기
+                let td1 = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                let td4 = document.createElement('td');
+                
+                // td 안의 내용 값 채우기
+                td1.innerText=num;
+                td2.innerText=writer;
+                td3.innerText=content;
+                td4.innerText=date.getFullYear() + '-'+(date.getMonth()+1)+'-'+date.getDate();
+
+                // tr (garo) 요소에 만든 td들 자식 요소로 추가
+                garo.appendChild(td1)
+                garo.appendChild(td2)
+                garo.appendChild(td3)
+                garo.appendChild(td4)
+
+                // tr 요소를 table요소에 자식 요소로 추가
+                table.appendChild(garo);
+
+            // append() : 요소.append() 선택한 요소의 맨 뒤 자식 요소로 추가
+  
+            num++;
+
+
+            // 입력값 초기화
+            let writerVal = document.getElementById('writer');
+            let contentVal = document.getElementById('content');
+            writerVal.value='';
+            contentVal.value='';
+
+
+            // 초기화 다른 예시 
+            let inputs = document.querySelectorAll('input');
+            console.log(inputs); // NodeList
+            for(let i =0;i<inputs.length;i++){
+                concole.log('for문 : ' ,inputs[i]);
+                // inputs[i] : 위에 name, content라는 변수로 만들어둔 요소와 동일
+                inputs[i].value='';
+
+            }
+        }
+        
+    </script>
 </body>
 </html>
