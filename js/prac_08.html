@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function changeImg(name){
+            $('#img').attr('src',`./img/${name}.png`);
+        }
+
+
+
+        function apple(){
+            $('#img').css('content','url("https://media.istockphoto.com/id/184276818/ko/%EC%82%AC%EC%A7%84/%EB%A0%88%EB%93%9C-%EC%82%AC%EA%B3%BC%EB%82%98%EB%AC%B4.jpg?s=612x612&w=is&k=20&c=pMMJns6S3nn9kQdHOQLpuHshtIshxca_RIbHMjIntaQ=")');
+        }
+        function banana(){
+            $('#img').css('content','url("https://cdn.healthinnews.co.kr/news/photo/202307/39252_40878_352.jpg")');
+        }
+        function grape(){
+            $('#img').css('content','url("https://www.yyg.go.kr/contents/71/img_grape01_2.jpg?build_20231103014")');
+        }
+        function peach(){
+            $('#img').css('content','url("https://img.hankyung.com/photo/202207/BD.30664440.1.jpg")');
+        }
+    </script>
+    <style>
+        body{
+            margin:0;
+        }
+        button{
+            background-color: #525252;
+            color:white;
+            margin:0 10px;
+        }
+        div{
+            border: 1px solid black;
+            width:500px;
+            height:500px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            
+        }
+        #img{
+            width:400px;
+            height:400px;
+            position: absolute;
+            top:0;
+            left:50px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div id="img"></div> -->
+    <img src="" alt="과일" id="img">
+    <div>
+        <!-- <button onclick="apple();">사과</button>
+        <button onclick="banana();">바나나</button>
+        <button onclick="grape();">포도</button>
+        <button onclick="peach();">복숭아</button> -->
+
+        <button onclick="changeImg('apple');">사과</button>
+        <button onclick="changeImg('banana');">바나나</button>
+        <button onclick="changeImg('grape');">포도</button>
+        <button onclick="changeImg('peach');">복숭아</button>
+    </div>
+</body>
+</html>

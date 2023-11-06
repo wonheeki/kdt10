@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function setValue(){
+            $('#input1').val('setting');
+            // document.getElementById('input1').value='setting';
+        }
+        function getValue(){
+            alert($('#input1').val());
+        }
+        function changeStyle(){
+            $('span').css('font-size','28px');
+            $('span').css('background-color','orange');
+            // span요소.style ='font-size:28px;~~';
+        }
+        function changeAttribute(){
+            $('#input1').attr('placeholder','input')
+            // input요소.setAttribute('placeholder','input');
+        }
+        function changeText(){
+            $('span').text('jQuery text');
+            // span요소.innerText='jQuery text'
+        }
+        function changeHTML(){
+            $('p').html('<h3>jQuery html</h3>');
+            // p 요소.innerHTML ='<h3>jQuery html</h3>';
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id ="input1">
+    <button onclick="setValue();">setValue</button>
+    <button onclick="getValue();">getValue</button>
+    <br>
+    <span style="width:100px; display: inline-block;">안녕</span>
+    <button onclick="changeStyle();">changeStyle</button>
+    <button onclick="changeAttribute();">changeAttribute</button>
+    <button onclick="changeText();">changeText</button>
+    <p>p태그</p>
+    <button onclick="changeHTML();">changeHTML</button>
+</body>
+</html>

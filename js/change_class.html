@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+
+        div:hover {
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+    <script>
+        let colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+
+        function changeColor() {
+
+            // 1번 방안
+            // if ($('div').hasClass('red') == true) {
+            //     $('div').switchClass('red', 'orange');
+            // } else if ($('div').hasClass('orange') == true) {
+            //     $('div').switchClass('orange', 'yellow');
+            // } else if ($('div').hasClass('yellow') == true) {
+            //     $('div').switchClass('yellow', 'green');
+            // } else if ($('div').hasClass('green') == true) {
+            //     $('div').switchClass('green', 'blue');
+            // } else if ($('div').hasClass('blue') == true) {
+            //     $('div').switchClass('blue', 'purple');
+            // } else if ($('div').hasClass('purple') == true) {
+            //     $('div').switchClass('purple', 'red');
+            // }
+
+            // 2번 방안
+            let nowClass = $('div').attr('class'); // 현재 클래스 가져오기
+            let i = colors.indexOf(nowClass); // 0-5
+
+            // length는 배열의 인덱스 넘버가 아니라 배열 개수를 반환하는 것!!
+            console.log(colors.length)
+
+            // purple일 때 red로 돌아가기
+            if(i==colors.length-1){
+                $('div').switchClass(nowClass,colors[0]);
+            }else{
+                $('div').switchClass(nowClass, colors[i+1]);
+            }
+
+            // 3번 방안
+            // for (let i = 0; i < colors.length; i++) {
+            //     if ($('div').hasClass(colors[i]) == true) {
+            //         $('div').switchClass(colors[i], colors[i+1]);   
+            //     }
+            // }
+
+            // $('div').switchClass('red','orange');
+            // $('div').switchClass('orange','yellow');
+            // $('div').switchClass('yellow','green');
+            // $('div').switchClass('green','blue');
+            // $('div').switchClass('blue','navy');
+            // $('div').switchClass('navy','purple');
+            // $('div').switchClass('purple','red');
+
+            // let div = document.querySelector('div');
+
+            // for (let i = 0; i < colors.length; i++) {
+            //     div.addEventListener('click', function() {
+            //         $('div').switchClass(colors[i], colors[i + 1], 2);
+            //     })
+
+            // }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="red" onclick="changeColor();"></div>
+</body>
+
+</html>

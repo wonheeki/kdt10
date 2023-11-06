@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <title>jQuery 이벤트</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <button>버튼</button>
+    </div>
+    <script>
+        console.log($(document));
+        
+        // 로딩될 때 바로 실행 ? 잘 모르겠음 왜 스크립트가 이 위치로 가야되는지
+        // ready : 돔 트리 생성완료된 후 실행
+        $(document).ready(function(){
+            $('.container').append('<h2>안녕 ready</h2>')
+        })
+        
+        $(function(){
+            // ready와 동일
+            $('.container').append('<h2>안녕 ready2</h2>')
+        })
+
+        // load 
+        $(window).on('load',function(){
+            $('.container').append('<h2>안녕 load</h2>')
+        })
+
+        // on을 쓴 것과 안 쓴 것의 차이
+        // $('button').click(function(){
+        //     alert('클릭');
+        // })
+
+        $('button').on('click',function(){
+            alert('클릭 on');
+        })
+
+        $('button').mouseover(function(){
+            alert('클릭 on');
+        })
+
+        $('input').keydown(function(e){
+            // 여기서 e는 뭐여
+            console.log(e);
+            console.log(e.target);
+            console.log(e.key);
+            // e.target과 this가 가져오는 값이 같음
+            console.log('this:',this)
+
+            if(e.key =='Enter'){
+                alert('엔터입력');
+            }
+        })
+    </script>
+</body>
+</html>

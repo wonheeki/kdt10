@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 요소 추가, 삭제</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function appendJS(){
+            // 부모 ul에 자식 li를 append
+            // 1. 부모 ul 선택
+            let ul = document.querySelector('ul');
+            // 2. 추가할 자식 li 요소 만들고
+            let li = document.createElement('li');
+            // 3. li 요소에 내용 추가
+            li.innerText='red'
+            // 4. ul에 자식 li를 append
+            ul.append(li);
+        }
+
+        function appendjQuery(){
+            $('ul').append('<li>jQuery append</li>');
+            // $('li:last-Child').append('<li>');
+        }
+        
+        // 요소 맨 앞에 추가(prepend)
+        function prependJS(){
+            // 부모 ul에 자식 li를 prepend
+            // 1. 부모 ul 선택
+            let ul = document.querySelector('ul');
+            // 2. 추가할 자식 li 요소 만들고
+            let li = document.createElement('li');
+            // 3. li 요소에 내용 추가
+            li.innerText='pink'
+            // 4. ul에 자식 li를 prepend
+            ul.prepend(li);
+        }
+        
+        function prependjQuery(){
+            $('ul').prepend('<li>jQuery prepend</li>');
+            // $('li:last-Child').append('<li>');
+        }
+
+        // 형제 요소 추가
+        function beforeJS(){
+            // 추가할 기준이 되는 요소 선택
+            let green = document.querySelector('.green');
+            // 추가할 요소 생성
+            let li = document.createElement('li');
+            // 내용 넣기
+            li.innerText ="before JS";
+            green.before(li);
+        }
+
+        function beforejQuery(){
+            $('.green').before('<li>before JQ</li>');
+        }
+
+        function afterJS(){
+            // 추가할 기준이 되는 요소 선택
+            let green = document.querySelector('.green');
+            // 추가할 요소 생성
+            let li = document.createElement('li');
+            // 내용 넣기
+            li.innerText ="after JS";
+            green.after(li);
+        }
+
+        function afterjQuery(){
+            $('.green').after('<li>after JQ</li>');
+        }
+
+        // 요소 삭제
+        // remove
+        function removeJS(){
+            let li = document.querySelector('#li2');
+            li.remove();
+
+        }
+
+        function removejQuery(){
+            $('#li2').remove();
+        }
+
+        // empty
+        function emptyJS(){
+            let nums = document.querySelector('.nums');
+            // nums.removeChild(); // 매개변수로 자식 요소를 넣어줘야 함
+            nums.innerHTML='';
+        }
+
+        function emptyjQuery(){
+            $('.nums').empty();
+        }
+
+        // 요소 탐색
+        function findParent(){
+            // parent() : 부모 요소 반환
+            console.log($('#li2').parent());
+        }
+        function findParents(){
+            // parents() : 조상 요소 반환
+            console.log($('#li2').parents());
+        }
+        function findNext(){
+            // next() : nextSibling
+            console.log($('#li2').next());
+            console.log($('#li2').next()[0]); 
+            // console.log($('#li2').next());를 찍었을 때, li 요소가 0번째에 있다고 했기 때문에 인덱스를 0으로 두면 li 정보가 나옴
+        }
+        function findPrev(){
+            // prev() : previousSibling
+            console.log($('#li2').prev());
+        }
+        function findChildren(){
+            // children() : 자식 요소 모두 반환, children과 동일
+            console.log($('.nums').children());
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>orange</li>
+        <li class="green">green</li>
+        <li>navy</li>
+        <!-- 추가해보기 -->
+    </ul>
+    <button onclick="appendJS();">append js</button>
+    <button onclick="appendjQuery();">append jQuery</button>
+
+    <button onclick="prependJS();">prepend js</button>
+    <button onclick="prependjQuery();">prepend jQuery</button>
+    <br>
+    <button onclick="beforeJS();">before js</button>
+    <button onclick="beforejQuery();">before jQuery</button>
+    <button onclick="afterJS();">after js</button>
+    <button onclick="afterjQuery();">after jQuery</button>
+    <br>
+    <!-- 요소 삭제 -->
+    <div>
+    <ul class="nums">
+        <li>1</li>
+        <li id="li2">2</li>
+        <li>3</li>
+    </ul>
+</div></div>
+    <button onclick="removeJS();">remove js</button>
+    <button onclick="removejQuery();">remove jQuery</button>
+    <button onclick="emptyJS();">empty js</button>
+    <button onclick="emptyjQuery();">empty jQuery</button>
+    <br>
+    <button onclick="findParent();">find Parent</button>
+    <button onclick="findParents();">find Parents</button>
+    <button onclick="findNext();">find Next</button>
+    <button onclick="findPrev();">find Prev</button>
+    <button onclick="findChildren();">find Children</button>
+</body>
+</html>
