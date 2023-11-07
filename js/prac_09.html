@@ -109,7 +109,7 @@
       </tr>
     </table>
 
-    <script>
+    <!-- <script>
         $('td').on('click',function(){
             // let date = Number(this.val);
             document.getElementById('date').value =$(this).text();
@@ -134,6 +134,37 @@
             // console.log(document.getElementById('content').value)
             // document.getElementById('date').value;
         }
+
+    </script> -->
+    <script>
+        // this를 기억하기 위한 전역변수
+        let target;
+
+        $('td > p').on('click', function() {
+            console.log(this);
+            // 날짜만 가져오려면 this의 text값을 가져와야 함
+            console.log($(this).text());
+
+            // 날짜, 내용 input 선택
+            // let date = $(this).text();
+            $('#date').val($(this).text());
+
+            // target에 this 기억해두기
+            target = this;
+        })
+
+        function writeSchedule() {
+            let content = $('#content').val();
+
+            // 요소 추가
+            $(target).parent().append('<span>' + content + "</span><br />");
+            // $(target.parentNode).append(~~)
+
+            // 초기화
+            $('#content').val("");
+            $('#date').val("");
+        }
+
 
     </script>
   </body>
