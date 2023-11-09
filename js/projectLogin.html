@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label></label>
+    <label></label>
+</body>
+<!-- 
+    웹 스토리지 : 프론트에서 웹에 저장할 수 있는 저장소
+    key와 value 값으로 이루어진 데이터를 저장할 수 있음
+
+    세션 스토리지 웹페이지의 세션이 끝날 때 저장된 데이터가 모두 사라짐
+        탭이 다른 경우, 탭을 닫은 경우 저장된 데이터를 사용할 수 없음
+    로컬 스토리지 : 세션이 끝나더라도 데이터가 지워지지 않음
+        탭이 다르거나, 해당 페이지를 나가도 데이터를 사용할 수 있음
+        만료시간을 정함
+ -->
+ <script>
+    const inputId = document.querySelector('#id');
+    const inputPw = document.querySelector('#pw');
+
+    const id = 'aaaa';
+    const pw ='1234';
+
+    const login= () =>{
+        if(inputId.value && inputPw.value){ // .value인데 true false 반환이 가능한가?
+            console.log(`id : ${inputId.value}, pw : ${inputPw.value}`)
+            if(inputId.value ===id){
+                if(inputPw.value===pw){
+                    localStorage.setItem(`loggedIn`,true)
+                    inputId.value=""
+                    inputPw.value=""
+                    alert('로그인 성공')
+                }else{
+                    alert('비밀번호를 학인해주세요')
+                    inputPw.value=""
+                }
+            }else{
+                    alert('아이디를 학인해주세요')
+                    inputId.value=""
+                    inputPw.value=""
+                }
+        }else{
+            alert('아이디와 비밀번호를 입력해주세요')
+        }
+    }
+    const checkLoggedIn =()=>{
+        console.log(localStorage.getItem(`loggedIn`))
+        
+        if(localStorage.getItem('loggedIn')){
+            console.log('로그인 유저입니다')
+        }else{
+            console.log('로그인 되어있지 않은 유저입니다.')
+        }
+    }
+
+    const logout = () =>{
+        localStorage.removeItem('loggedIn')
+    }
+ </script>
+</html>
