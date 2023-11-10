@@ -26,11 +26,17 @@
     const id = 'aaaa';
     const pw ='1234';
 
+    // 로그인 코드
     const login= () =>{
+        // 아이디와 비밀번호가 입력된 경우
         if(inputId.value && inputPw.value){ // .value인데 true false 반환이 가능한가?
             console.log(`id : ${inputId.value}, pw : ${inputPw.value}`)
+            // 아이디 값이 저장된 아이디와 같은지 비교
             if(inputId.value ===id){
+                // 비밀번호 값이 저장된 비밀번호와 같은지 비교
                 if(inputPw.value===pw){
+                    // 아이디와 비밀번호가 모두 같다면 세션 스토리지에 'loggedIn' 이라는 키의 value를 true로 저장
+                    //  localStorage.setItem(`키`,값) : 로컬 스토리지에 해당 키와 값을 저장
                     localStorage.setItem(`loggedIn`,true)
                     inputId.value=""
                     inputPw.value=""
@@ -48,9 +54,13 @@
             alert('아이디와 비밀번호를 입력해주세요')
         }
     }
+
+    // 로그인 유저인지 확인하는 함수
     const checkLoggedIn =()=>{
+        //localStorage.getItem(`키`) : 해당 키 값을 가지고 있는 데이터가 로컬 스토리지에 있는지 확인, 값을 가져옴
         console.log(localStorage.getItem(`loggedIn`))
         
+
         if(localStorage.getItem('loggedIn')){
             console.log('로그인 유저입니다')
         }else{
@@ -59,6 +69,7 @@
     }
 
     const logout = () =>{
+        //  localStorage.removeItem('키') : 해당 키값을 가지고 있는 데이터를 로컬 스토리지에서 삭제
         localStorage.removeItem('loggedIn')
     }
  </script>
