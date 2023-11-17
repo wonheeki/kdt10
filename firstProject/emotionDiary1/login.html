@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차곡차곡</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./onboarding.css"> -->
+    <link rel="icon" href="./img/face.png" type="image/x-icon">
+    <style>
+        @font-face {
+            font-family: 'Pretendard';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'SUITE';
+            margin: 0;
+            padding: 0;
+            background-image: url('./img/background1.jpg');
+            width: 100%;
+            height: 100vh;
+            /* background-size: 100% 100%; */
+            background-size: cover;
+            /* background-repeat: no-repeat; */
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .popup {
+            height: 600px;
+            background-color: white;
+            border-radius: 20px;
+            /* display:flex; */
+            /* justify-content: center; */
+            width: 500px;
+
+        }
+
+
+
+        .logo {
+            margin-top: 50px;
+            height: 34px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+
+
+
+
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+
+        }
+
+        .move-btn {
+            width: 425px;
+            height: 40px;
+            background-color: #FADEDA;
+            border: 0;
+            border-radius: 10px;
+            position: relative;
+            transform: translate(-50%, 0);
+            left: 50%;
+            top: 30px;
+            font-family: 'SUITE';
+            font-size: 13px;
+            font-weight: 600;
+            transition-duration: 0.3s;
+        }
+
+        .move-btn.next {
+            box-shadow: 3px 3px 3px #9b9b9b;
+
+        }
+
+        .move-btn.next:active {
+            margin-left: 5px;
+            margin-top: 5px;
+            box-shadow: none;
+        }
+
+        .login.login-input {
+            text-align: center;
+            background-color: white;
+            margin-top: 90px;
+            margin-bottom: 30px;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: SUITE;
+        }
+
+        .login-input {
+            width: 365px;
+            height: 37px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 7px;
+            border: none;
+            background-color: #eee;
+            padding: 0 30px;
+        }
+
+        .login-input:focus {
+            border: 1px solid red;
+        }
+
+        @media all and (max-width:767px) {
+            .popup {
+                height:80vh;
+    width:90%;
+            }
+
+            .login-input {
+                width: 75%;
+                padding: 0 5%;
+            }
+
+            .move-btn {
+                width: 88%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="popup">
+            <img class="logo" src="./img/logo.png">
+            <div class="login-input login">로그인</div>
+            <input class="login-input" type="text" id="userId" placeholder="I D">
+            <input class="login-input" type="password" id="userPw" placeholder="PW">
+            <input type="button" class="btn move-btn next" value="로그인" onclick="login()">
+            <!-- <div style="width:100px; height:100px; border :1px solid black; font-size:1rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:1em;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:1.2rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:1.5rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:2rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:2.2rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:2.5rem;">안녕하세요</div>
+            <div style="width:100px; height:100px; border :1px solid black; font-size:3rem;">안녕하세요</div> -->
+        </div>
+</body>
+<script>
+
+    const inputId = document.querySelector('#userId')
+    const inputPw = document.querySelector('#userPw')
+
+    const id = 'aaaa';
+    const pw = '1234';
+
+    let num = 1;
+    let userNum = "";
+
+    const login = () => {
+        if (inputId.value && inputPw.value) {
+            // 아이디와 비밀번호가 입력된 경우
+            console.log(`id: ${inputId.value}, pw: ${inputPw.value}`)
+            // 아이디 값이 저장된 아이디와 같은지 비교
+            if (inputId.value === id) {
+                // 비밀번호 값이 저장된 비밀번호와 같은지 비교
+                if (inputPw.value === pw) {
+                    // 아이디와 비밀번호가 모두 같다면 세션스토리지에 'loggedIn'이라는 키의 value를 true로 저장
+                    // localStorage.setItem('키', '값') : 로컬 스토리지에 해당 키와 값을 저장
+                    localStorage.setItem('loggedIn', true)
+                    localStorage.setItem('userName', `${id}`);
+                    inputId.value = ''
+                    inputPw.value = ''
+                    alert('로그인을 성공했습니다.')
+                    location.href = "./main.html"
+                } else {
+                    inputPw.value = ''
+                    alert('비밀번호를 확인해주세요.')
+                }
+            } else {
+                inputId.value = ''
+                inputPw.value = ''
+                alert('아이디를 확인해주세요.')
+            }
+        } else {
+            alert('아이디와 비밀번호를 입력해주세요.')
+        }
+    }
+
+    // const login = () => {
+    //     let idVal = inputId.value;
+    //     let pwVal = inputPw.value;
+    //     const data = { id: `${idVal}`, pw: `${pwVal}` };
+    //     const dataKey=`user${num}`;
+    //     console.log(dataKey)
+    //     localStorage.setItem(dataKey, JSON.stringify(data));
+    //     userNum=dataKey;
+    //     num++;
+    //     inputId.value=""
+    //     inputPw.value=""
+    //     console.log(idVal, pwVal);
+    //     alert(`${idVal} ${pwVal}`)
+    // }
+</script>
+
+</html>

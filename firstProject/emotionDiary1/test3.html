@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>당신의 감정 기록!!</title>
+
+  <!-- Bootstrap CSS CDN 추가 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('배경화면.jpg');
+    }
+
+    #calendar-container {
+      width: 550px;
+      height: 600px;
+      margin-right: 100px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      vertical-align: top;
+      position: relative;
+      max-width: 50px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      height: 80px;
+      box-sizing: border-box;
+      transition: height 0.3s;
+    }
+
+    td {
+      border: 1px solid #ddd;
+      text-align: center;
+      vertical-align: top;
+      height: 100px;
+      padding: 5px;
+      /* 내용의 여백을 조절 */
+
+    }
+
+    th {
+      background-color: #3498db;
+      color: #fff;
+      height: 50px;
+    }
+
+    td:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    td.selected {
+      background-color: #2ecc71;
+      color: #fff;
+    }
+
+    td.has-content {
+      height: auto;
+      /* 자동으로 크기 조절 */
+    }
+
+    .calendar-header {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 20px;
+    }
+
+    .calendar-header button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calendar-header button:hover {
+      background-color: #2980b9;
+    }
+
+    #container-box {
+      width: 530px;
+      height: 600px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-left: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 8%;
+    }
+
+    #selectedDate {
+      width: calc(100% - 50px);
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      display: inline-block;
+    }
+
+    #emotion-text {
+      margin-bottom: 20px;
+    }
+
+    .btnbox-container {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btnbox button {
+      padding: 10px;
+      cursor: pointer;
+      border: 2px solid #3498db;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btnbox button .img-container {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .btnbox button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      background-color: white;
+    }
+
+    .amount-input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: all 0.3s;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    #input-button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 5px;
+    }
+
+    #input-button:hover {
+      background-color: #2980b9;
+    }
+
+    #reset-button {
+      width: 100px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 5px;
+    }
+
+    #reset-button:hover {
+      background-color: #c0392b;
+    }
+
+    .btnbox button.active {
+      border-width: 3px;
+    }
+
+    .btnbox button:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    .emotion-circle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .happy {
+      background-color: yellow;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .sad {
+      background-color: lightblue;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .angry {
+      background-color: red;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .boring {
+      background-color: pink;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .frustrating {
+      background-color: limegreen;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .progress-bar {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="calendar-container">
+    <div class="calendar-header">
+      <button onclick="prevMonth()">◀</button>
+      <span id="currentMonthYear"
+        style="background-color: #3498db;color: white; border: 6px solid #1881c7; padding: auto;"></span>
+      <button onclick="nextMonth()">▶</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>日</th>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th>土</th>
+        </tr>
+      </thead>
+      <tbody id="calendar-body">
+      </tbody>
+    </table>
+  </div>
+
+  <div id="container-box">
+    <div id="emotion-text">
+      <h4>감정소비내역</h4>
+    </div>
+    <label for="selectedDate">선택한 날짜:</label>
+    <input type="text" id="selectedDate" readonly>
+
+    <div class="btnbox-container">
+
+      <button type="button" class="btnbox btn" name="emotion" id="happy" value="happy">
+        <div class="img-container">
+          <img src="happy.png" width="60px" height="60px" />
+        </div>
+      </button>
+
+      <button type="button" class="btnbox btn" name="emotion" id="sad" value="sad">
+        <div class="img-container">
+          <img src="sad.png" width="60px" height="60px" />
+        </div>
+      </button>
+
+      <button type="button" class="btnbox btn" name="emotion" id="angry" value="angry">
+        <div class="img-container">
+          <img src="angry.png" width="60px" height="60px" />
+        </div>
+      </button>
+
+      <button type="button" class="btnbox btn" name="emotion" id="boring" value="boring">
+        <div class="img-container">
+          <img src="boring.png" width="60px" height="60px" />
+        </div>
+      </button>
+
+      <button type="button" class="btnbox btn" name="emotion" id="frustrating" value="frustrating">
+        <div class="img-container">
+          <img src="frustrating.png" width="60px" height="60px" />
+        </div>
+      </button>
+    </div>
+
+    <input type="text" class="amount-input" placeholder="금액을 입력하세요">
+
+    <button id="input-button" onclick="handleInput()">입력하기</button>
+    <button id="reset-button" onclick="resetCalendar()">초기화</button>
+
+    <br><br><br>
+
+    <div class="progress">
+      <div class="progress-barHappy" role="progressbar" style=" background-color: yellow;" aria-valuenow="20"
+        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-barSad" role="progressbar" style=" background-color: skyblue" aria-valuenow="20"
+        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-barAngry" role="progressbar" style=" background-color: red;" aria-valuenow="20"
+        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-barBoring" role="progressbar" style=" background-color: pink;" aria-valuenow="20"
+        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-barFrustrating" role="progressbar" style=" background-color: green" aria-valuenow="20"
+        aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+
+  <script>
+    // 전역변수
+    let date = new Date();
+    let currentYear = new Date().getFullYear();
+    let currentMonth = new Date().getMonth() + 1;
+    let target;
+    let selectedDateCell
+
+    // 캘린더 생성 함수 1
+    function createCalendar(year, month) {
+      const container = document.getElementById("calendar-body");
+      container.innerHTML = "";
+
+      const firstDay = new Date(year, month - 1, 1).getDay();
+      const lastDay = new Date(year, month, 0).getDate();
+      const totalWeeks = Math.ceil((firstDay + lastDay) / 7);
+
+      let dayCount = 1;
+      for (let i = 0; i < totalWeeks; i++) {
+        const row = container.insertRow();
+
+        for (let j = 0; j < 7; j++) {
+          const cell = row.insertCell();
+
+          if (i === 0 && j < firstDay) {
+            // 빈 셀: 첫째 날 이전의 빈 셀
+          } else if (dayCount > lastDay) {
+            // 빈 셀: 마지막 날 이후의 빈 셀
+          } else {
+            cell.textContent = dayCount;
+            cell.addEventListener("click", handleDateClick);
+            dayCount++;
+          }
+        }
+      }
+    }
+
+    // 캘린더 생성 함수2
+    function updateCalendarHeader() {
+      document.getElementById("currentMonthYear").textContent = `${currentYear}년 ${currentMonth}월`;
+    }
+
+    function prevMonth() {
+      currentMonth--;
+      if (currentMonth === 0) {
+        currentMonth = 12;
+        currentYear--;
+      }
+      updateCalendar();
+    }
+
+    function nextMonth() {
+      currentMonth++;
+      if (currentMonth === 13) {
+        currentMonth = 1;
+        currentYear++;
+      }
+      updateCalendar();
+    }
+
+    function updateCalendar() {
+      updateCalendarHeader();
+      createCalendar(currentYear, currentMonth);
+    }
+
+    // 날짜를 클릭했을 때 날짜값이 텍스트 박스에 나오게 하는 함수
+    function handleDateClick(event) {
+      const selectedDate = event.target.textContent;
+      target = event.target;
+      document.getElementById("selectedDate").value = `${currentYear}년 ${currentMonth}월 ${target.innerText}일 `;
+      selectedDateCell = target
+    }
+
+    $('.btnbox').on('click', function () {
+      $('.btnbox').removeClass('active');
+      $(this).addClass('active');
+      showEmotionCircle(); // 감정 버튼을 클릭할 때마다 동그라미 표시
+    });
+
+    // 감정 동그라미 생성 함수
+    function showEmotionCircle() {
+      const emotion = $('.btnbox.active').val();
+      const circle = document.createElement('div');
+      circle.classList.add('emotion-circle', emotion);
+      target.appendChild(circle);
+    }
+
+    // 입력하기 버튼 
+    function handleInput() {
+      let amount = $('.amount-input').val();
+      let emotion = $('.btnbox.active').val();
+
+      if (!amount) {
+        alert('값을 입력해주세요!');
+        return;
+
+        console.log(selectedDateCell)
+
+      }
+
+      // td에 동그라미 추가
+      const circle = document.createElement('div');
+      circle.classList.add('emotion-circle', emotion);
+      // target.appendChild(circle);
+
+      // td에 금액 추가
+      // $(target).append('<br><br>' + amount + '원');
+      $(target).append(`<p class="amount-amount"> ${amount}</p>`);
+
+
+      // 프로그래스 바 업데이트
+      updateProgressBar(emotion, amount);
+
+      // 기존 코드
+      $('.amount-input').val("");
+      $('.btnbox').removeClass('active');
+    }
+
+    function resetCalendar() {
+      // const selectedDate = document.getElementById("selectedDate").value;
+      const selectedDate = document.getElementById("selectedDate");
+      $(target).children().remove();
+      // $(target).children().eq(1).text="";
+      // target.removeClass('emotion-circle');
+      console.log(target);
+      // console.log(selectedDate)
+      // console.log($('#selectedDate').val())
+      // if (selectedDateCell) {
+      //   console.log(selectedDateCell)
+      //   selectedDateCell.innerText = "";
+
+      // }
+
+      // $("#selectedDate").val("");
+      // $(".amount-input").val("");
+      // $(".btnbox").removeClass("active");
+
+      $('.progress-barHappy').css('width', '0%');
+      $('.progress-barSad').css('width', '0%');
+      $('.progress-barAngry').css('width', '0%');
+      $('.progress-barBoring').css('width', '0%');
+      $('.progress-barFrustrating').css('width', '0%');
+    }
+
+
+
+
+
+
+
+
+    function updateProgressBar(emotion, amount) {
+      // 프로그래스 바 업데이트
+      const progressBar = $('.progress-bar' + emotion.charAt(0).toUpperCase() + emotion.slice(1));
+      let currentWidth = parseInt(progressBar.css('width'));
+      currentWidth += parseInt(amount); // 간단한 업데이트 로직, 적절히 수정 가능
+      progressBar.css('width', currentWidth + '%');
+    }
+
+    updateCalendar();
+  </script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>

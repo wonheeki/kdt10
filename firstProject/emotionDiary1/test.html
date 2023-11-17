@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input id="userID" type="text">
+    <input id="userPW" type="text">
+    <button onclick="login();">로그인</button>
+</body>
+<script>
+    const inputId = document.querySelector('#userID')
+    const inputPw = document.querySelector('#userPW')
+    let num =1;
+    
+    
+    const login = () =>{
+        let idVal = inputId.value;
+        let pwVal = inputPw.value;
+        const data = { id: `${idVal}`, pw: `${pwVal}` };
+        // localStorage.setItem('id', idVal)
+        // localStorage.setItem('pw', pwVal)
+        localStorage.setItem('user1', JSON.stringify(data1));
+        console.log(idVal,pwVal);
+        alert(`${idVal} ${pwVal}`)
+        location.href='./test2.html';
+    }
+    
+</script>
+
+</html>

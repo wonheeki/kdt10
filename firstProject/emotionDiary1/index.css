@@ -1,0 +1,969 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: SUITE;
+    /* font-size:1rem; */
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: white;
+    z-index: 100;
+    transition: top 0.3s;
+
+}
+
+
+.header img {
+    height: 40px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.cha-container {
+    display: inline-block;
+}
+
+.cha-nav {
+    width: 290px;
+    height: calc(100vh - 100px);
+    background-color: #FFEDED;
+    position: fixed;
+    top: 100px;
+    /* display:flex;
+    align-content: center; */
+}
+
+.nav-menu {
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.fa-solid {
+    margin-right: 15px;
+}
+
+.nav-menu:first-child {
+    margin-top: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* .nav-li a{
+    text-decoration: none;
+    color:#333;
+} */
+.nav-li {
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    padding: 0 50px;
+    /* border :1px solid black; */
+    margin: 13px auto;
+    color: #333;
+    font-weight: bold;
+    /* transform: translate(10%,-50%); */
+}
+
+.nav-li:hover {
+    background-color: #FF7171;
+    color: white;
+}
+
+.cha-content {
+    width: calc(100vw - 307px);
+    height: 100vh;
+    /* background-color: rgb(115, 44, 44); */
+    position: relative;
+    left: 290px;
+    top: 100px;
+
+}
+
+
+.tetris {
+    /* border: 1px solid black; */
+    width: 290px;
+    height: 300px;
+    position: fixed;
+    bottom: 50px;
+    overflow: hidden;
+}
+
+.t-sad {
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+    width: 60px;
+    animation: sad 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.t-happy {
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+    width: 60px;
+    animation: happy 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.t-boring {
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+    width: 60px;
+    animation: boring 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.t-frustrating {
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+    width: 90px;
+    animation: frustrating 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+.t-angry {
+    position: absolute;
+    bottom: 300px;
+    right: 140px;
+    width: 60px;
+    animation: angry 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes angry {
+    0% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    10% {
+        right: 140px;
+        bottom: 100px;
+    }
+
+    15% {
+        right: 70px;
+        bottom: 100px;
+    }
+
+    20% {
+        right: 70px;
+        bottom: 0px;
+    }
+
+    25% {
+        right: 70px;
+        bottom: 0px;
+    }
+
+    30% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    40% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    45% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    50% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    60% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    70% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    80% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    90% {
+        bottom: 0px;
+        right: 70px;
+    }
+
+    100% {
+        bottom: 0px;
+        right: 70px;
+    }
+}
+
+@keyframes sad {
+    0% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    10% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    20% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    30% {
+        bottom: 100px;
+        right: 140px;
+    }
+
+    35% {
+        bottom: 100px;
+        right: 100px;
+    }
+
+    40% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    45% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    50% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    60% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    70% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    80% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    90% {
+        bottom: 0px;
+        right: 100px;
+    }
+
+    100% {
+        bottom: 0px;
+        right: 100px;
+    }
+}
+
+@keyframes happy {
+    0% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    10% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    20% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    25% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    30% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    40% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    50% {
+        right: 140px;
+        bottom: 150px;
+    }
+
+    55% {
+        bottom: 150px;
+        right: 160px;
+    }
+
+    60% {
+        bottom: 0;
+        right: 160px;
+    }
+
+    70% {
+        bottom: 0;
+        right: 160px;
+    }
+
+    80% {
+        bottom: 0;
+        right: 160px;
+    }
+
+    90% {
+        bottom: 0;
+        right: 160px;
+    }
+
+    100% {
+        bottom: 0;
+        right: 160px;
+    }
+}
+
+@keyframes frustrating {
+    0% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    10% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    20% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    25% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    30% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    40% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    45% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    50% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    55% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    60% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    65% {
+        bottom: 100px;
+        right: 130px;
+    }
+
+    70% {
+        bottom: 60px;
+        right: 130px;
+    }
+
+    80% {
+        bottom: 60px;
+        right: 130px;
+    }
+
+    90% {
+        bottom: 60px;
+        right: 130px;
+    }
+
+    100% {
+        bottom: 60px;
+        right: 130px;
+    }
+}
+
+@keyframes boring {
+    0% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    10% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    20% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    25% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    30% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    40% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    45% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    50% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    55% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    60% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    70% {
+        right: 140px;
+        bottom: 300px;
+    }
+
+    80% {
+        right: 140px;
+        bottom: 130px;
+    }
+
+    90% {
+        bottom: 130px;
+        right: 100px;
+    }
+
+    95% {
+        bottom: 90px;
+        right: 100px;
+    }
+
+    100% {
+        bottom: 90px;
+        right: 100px;
+    }
+}
+
+.loginBtn {
+    /* border: 2px solid #FF7171; */
+    border: 2px solid #dedede;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    right: 50px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+}
+
+.loginBtn:hover {
+    border: 2px solid #FF7171;
+
+}
+
+.user-profile {
+    width: 200px;
+    text-align: right;
+    height: 40px;
+    position: absolute;
+    right: 50px;
+    /* line-height: 40px; */
+    text-align: right;
+    /* display: none; */
+    display: flex;
+}
+
+#profile {
+    height: 40px;
+    line-height: 40px;
+    margin: 0 4px -3px 0;
+    display: inline;
+}
+
+.user-name {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 10px;
+    text-align: right;
+}
+
+/* .nav-user-name{
+    display:inline;
+} */
+.user-name span {
+    cursor: pointer;
+}
+
+/* .span-profile {
+    height: 150px;
+    padding-top: 110px;
+} */
+
+.span-profile {
+    height: 50px;
+    width: 120px;
+    /* padding-top: 110px; */
+    /* padding-bottom: 100px; */
+    /* border: 1px solid gray; */
+    POSITION: absolute;
+    right: 60px;
+    margin-top: 105px;
+    /* background-color: white; */
+
+}
+
+/* .user-name span:after{
+    content:'▴';
+
+    cursor:pointer;
+} */
+
+
+.logoutBtn {
+    border: 2px solid #dedede;
+    width: 125px;
+    height: 30px;
+    /* right: 50px; */
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+    background-color: white;
+    /* position:absolute; */
+}
+
+.logoutBtn:hover {
+    border: 2px solid #FF7171;
+    cursor: pointer;
+
+}
+
+.fa-bars {
+    display: none;
+    cursor: pointer;
+    POSITION: absolute;
+    right: 60px;
+    font-size: 35px;
+}
+.nav-logoutBtn{
+    display: none;
+}
+
+/* .nav-loginBtn{
+    display:none;
+} */
+/* .slide-nav{
+    width:100%;
+    height:0;
+    border:1px solid #d9d9d9;
+    transition: height 1s;
+} */
+@media all and (min-width:768px) and (max-width:1023px) {
+    .nav-user-profile {
+        padding: 0 calc((100% - 130px) / 2);
+        margin-top: 3%;
+    }
+
+
+    .nav-span-profile {
+        height: 50px;
+        width: 100%;
+        /* padding-top: 110px; */
+        /* padding-bottom: 100px; */
+        /* border: 1px solid gray; */
+        POSITION: absolute;
+        /* right: 60px; */
+        margin-top: 3%;
+        /* background-color: white; */
+    }
+
+
+
+/* .user-name span:after{
+        content:'▴';
+    
+        cursor:pointer;
+    } */
+
+
+.nav-logoutBtn {
+    border: 2px solid #dedede;
+    width: 125px;
+    height: 30px;
+    /* right: 50px; */
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+    left: 50%;
+    top: -16px;
+    transform: translate(-50%, 0);
+    /* padding: 0 calc((100% - 130px) / 2); */
+    background-color: white;
+    position: absolute;
+}
+
+.nav-logoutBtn:hover {
+    border: 2px solid #FF7171;
+    cursor: pointer;
+
+}
+
+.nav-loginBtn {
+    border: 2px solid #dedede;
+    width: 160px;
+    height: 30px;
+    /* right: 50px; */
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+    padding: 0;
+    margin-top: 0;
+    margin: 0 auto;
+    /* position: absolute; */
+}
+
+.nav-loginBtn:hover {
+    border: 2px solid #FF7171;
+    cursor: pointer;
+
+}
+
+.nav-user-name {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 10px;
+    text-align: right;
+}
+
+/* .span-profile{
+        left:50%;
+        transform: translate(0,-50%);
+    } */
+/* .nav-user-name{
+        display:inline;
+    } */
+.nav-user-name span {
+    cursor: pointer;
+}
+
+.loginBtn {
+    display: none;
+}
+
+.header {
+    height: 80px;
+}
+
+.header img {
+    height: 35px;
+
+}
+
+.cha-nav {
+    top: 80px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s;
+    /* display:none; */
+}
+
+.nav-li {
+    border-radius: 0;
+    padding: 0 calc((100% - 130px) / 2);
+    margin: 1% 0;
+}
+
+.nav-menu:first-child {
+    margin-top: 86px;
+}
+
+.loginBtn {
+    /* top:30px;
+        left: 50%;
+        transform: translate(-50%, 0); */
+    display: none;
+    
+}
+
+.user-profile {
+    display: none;
+}
+
+
+.fa-bars {
+    display: block;
+    font-size: 30px;
+}
+
+.fa-bars.fa-solid {
+    margin-right: 0;
+}
+
+.nav-expanded {
+    height: 30%;
+    transition: height 1s;
+    z-index: 100;
+    padding-top: 3%;
+}
+
+.cha-content {
+    width: 100%;
+    height: 100vh;
+    top: 80px;
+    left: 0;
+    position: fixed;
+    z-index: 0;
+}
+
+.tetris {
+    display: none;
+}
+
+}
+
+@media all and (max-width:767px) {
+    .nav-user-profile {
+        padding: 0 calc((100% - 130px) / 2);
+        margin-top: 3%;
+    }
+
+
+    .nav-span-profile {
+        height: 50px;
+        width: 100%;
+        /* padding-top: 110px; */
+        /* padding-bottom: 100px; */
+        /* border: 1px solid gray; */
+        POSITION: absolute;
+        /* right: 60px; */
+        margin-top: 3%;
+        /* background-color: white; */
+    }
+
+
+
+/* .user-name span:after{
+        content:'▴';
+    
+        cursor:pointer;
+    } */
+
+
+.nav-logoutBtn {
+    border: 2px solid #dedede;
+    width: 125px;
+    height: 30px;
+    /* right: 50px; */
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+    left: 50%;
+    top: -16px;
+    transform: translate(-50%, 0);
+    /* padding: 0 calc((100% - 130px) / 2); */
+    background-color: white;
+    position: absolute;
+}
+
+.nav-logoutBtn:hover {
+    border: 2px solid #FF7171;
+    cursor: pointer;
+
+}
+#profile{
+    height:35px;
+}
+
+.nav-user-name {
+    display: inline-block;
+    width: fit-content;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 14px;
+}
+
+/* .span-profile{
+        left:50%;
+        transform: translate(0,-50%);
+    } */
+/* .nav-user-name{
+        display:inline;
+    } */
+.nav-user-name span {
+    cursor: pointer;
+}
+
+.loginBtn {
+    display: none;
+}
+
+.nav-loginBtn {
+    border: 2px solid #dedede;
+    width: 130px;
+    height: 30px;
+    /* right: 50px; */
+    line-height: 29px;
+    text-align: center;
+    border-radius: 50px;
+    display: none;
+    padding: 0;
+    margin-top: 0;
+    margin: 0 auto;
+    font-size: 14px;
+    /* position: absolute; */
+}
+
+.nav-loginBtn:hover {
+    border: 2px solid #FF7171;
+    cursor: pointer;
+
+}
+
+.header {
+    height: 80px;
+}
+
+.header img {
+    height: 35px;
+
+}
+
+.cha-nav {
+    top: 80px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 1s;
+    /* display:none; */
+}
+
+.nav-li {
+    border-radius: 0;
+    padding: 0 calc((100% - 130px) / 2);
+    margin: 1% 0;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.nav-menu:first-child {
+    margin-top: 86px;
+}
+
+.loginBtn {
+    /* top:30px;
+        left: 50%;
+        transform: translate(-50%, 0); */
+    display: none;
+}
+
+.user-profile {
+    display: none;
+}
+
+
+.fa-bars {
+    display: block;
+    font-size: 30px;
+}
+
+.fa-bars.fa-solid {
+    margin-right: 0;
+}
+
+.nav-expanded {
+    height: 23%;
+    transition: height 1s;
+    z-index: 100;
+    padding-top: 4%;
+
+}
+
+.cha-content {
+    width: 100%;
+    height: 100vh;
+    top: 80px;
+    left: 0;
+    position: fixed;
+    z-index: 0;
+}
+
+.tetris {
+    display: none;
+}
+
+
+}
