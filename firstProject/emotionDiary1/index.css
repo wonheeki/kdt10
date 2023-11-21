@@ -47,9 +47,6 @@ ul {
     list-style-type: none;
 }
 
-.fa-solid {
-    margin-right: 15px;
-}
 
 .nav-menu:first-child {
     margin-top: 30px;
@@ -63,8 +60,8 @@ a {
     text-decoration: none;
     color:#333;
 } */
-.nav-li {
-    width: 130px;
+.navi-li {
+    width: 140px;
     height: 40px;
     line-height: 40px;
     border-radius: 50px;
@@ -73,13 +70,25 @@ a {
     margin: 13px auto;
     color: #333;
     font-weight: bold;
+    display: flex;
+    align-items: center;
     /* transform: translate(10%,-50%); */
 }
 
-.nav-li:hover {
+.navi-li:hover {
     background-color: #FF7171;
     color: white;
+    .li-img{
+        filter: invert(99%) sepia(12%) saturate(2%) hue-rotate(100deg) brightness(106%) contrast(101%);
+    }
 }
+.li-img{
+    margin-right:10px;
+    filter: invert(14%) sepia(0%) saturate(4778%) hue-rotate(86deg) brightness(97%) contrast(80%);
+}
+
+
+
 
 .cha-content {
     width: calc(100vw - 307px);
@@ -607,12 +616,15 @@ a {
 
 }
 
-.fa-bars {
+.menuBtn {
     display: none;
     cursor: pointer;
     POSITION: absolute;
     right: 60px;
-    font-size: 35px;
+    width: 40px;
+    /* color:#8e5252;
+    fill:#8e5252; */
+    filter: invert(42%) sepia(7%) saturate(2721%) hue-rotate(314deg) brightness(85%) contrast(90%);
 }
 .nav-logoutBtn{
     display: none;
@@ -670,6 +682,7 @@ a {
     /* padding: 0 calc((100% - 130px) / 2); */
     background-color: white;
     position: absolute;
+    z-index:200;
 }
 
 .nav-logoutBtn:hover {
@@ -723,6 +736,7 @@ a {
 
 .header {
     height: 80px;
+    z-index:500;
 }
 
 .header img {
@@ -735,11 +749,34 @@ a {
     width: 100%;
     height: 0;
     overflow: hidden;
-    transition: height 1s;
+    /* transition: transform 1s; */
+    /* transform:translateY(0); */
     /* display:none; */
 }
 
-.nav-li {
+.nav-expanded {
+    /* height: fit-content;
+    transition: height 1s;
+    z-index: 100;
+    padding-top: 3%; */
+    height: fit-content;
+    transition: height 1s;
+    z-index: 100;
+    padding-top: 3%;
+    /* max-height: 1000px; */
+
+    animation: slideDown 1s forwards ease;
+}
+@keyframes slideDown {
+    from{
+        transform: translateY(-100%);
+    }to{ 
+        
+        transform: translateY(0);
+    }
+}
+
+.navi-li {
     border-radius: 0;
     padding: 0 calc((100% - 130px) / 2);
     margin: 1% 0;
@@ -748,6 +785,7 @@ a {
 .nav-menu:first-child {
     margin-top: 86px;
 }
+
 
 .loginBtn {
     /* top:30px;
@@ -762,21 +800,14 @@ a {
 }
 
 
-.fa-bars {
+.menuBtn {
     display: block;
-    font-size: 30px;
+    /* font-size: 30px; */
+    width:40px;
 }
 
-.fa-bars.fa-solid {
-    margin-right: 0;
-}
 
-.nav-expanded {
-    height: 30%;
-    transition: height 1s;
-    z-index: 100;
-    padding-top: 3%;
-}
+
 
 .cha-content {
     width: 100%;
@@ -830,12 +861,13 @@ a {
     text-align: center;
     border-radius: 50px;
     display: none;
-    left: 50%;
-    top: -16px;
+    left: 48vw;
+    top: -2vw;
     transform: translate(-50%, 0);
     /* padding: 0 calc((100% - 130px) / 2); */
     background-color: white;
     position: absolute;
+    z-index:200;
 }
 
 .nav-logoutBtn:hover {
@@ -894,10 +926,11 @@ a {
 
 .header {
     height: 80px;
+    z-index:500;
 }
 
 .header img {
-    height: 35px;
+    height: 30px;
 
 }
 
@@ -906,17 +939,42 @@ a {
     width: 100%;
     height: 0;
     overflow: hidden;
+
+}
+.nav-expanded {
+    /* height: fit-content;
     transition: height 1s;
-    /* display:none; */
+    z-index: 100;
+    padding-top: 3%; */
+    height: fit-content;
+    transition: height 1s;
+    z-index: 100;
+    padding-top: 4%;
+    /* max-height: 1000px; */
+
+    animation: slideDown 1s forwards ease;
+}
+@keyframes slideDown {
+    from{
+        transform: translateY(-100%);
+    }to{ 
+        
+        transform: translateY(0);
+    }
 }
 
-.nav-li {
+.navi-li {
     border-radius: 0;
     padding: 0 calc((100% - 130px) / 2);
     margin: 1% 0;
     height: 30px;
     font-size: 14px;
     line-height: 30px;
+    
+}
+
+.li-img{
+    width:20px;
 }
 
 .nav-menu:first-child {
@@ -935,22 +993,13 @@ a {
 }
 
 
-.fa-bars {
+.menuBtn {
     display: block;
-    font-size: 30px;
+    /* font-size: 30px; */
+    width:40px;
 }
 
-.fa-bars.fa-solid {
-    margin-right: 0;
-}
 
-.nav-expanded {
-    height: 23%;
-    transition: height 1s;
-    z-index: 100;
-    padding-top: 4%;
-
-}
 
 .cha-content {
     width: 100%;

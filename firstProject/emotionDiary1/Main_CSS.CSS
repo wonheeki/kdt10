@@ -1,0 +1,603 @@
+/* .nav-li {
+  display: inline-block;
+  width: 200px;
+} */
+
+/* 메인 */
+
+#mainContainerBox {
+  /* background-color: pink; */
+  width: 80%;
+  margin: auto;
+}
+
+#mainHeaderText {
+  width: 100%;
+  padding: 10px;
+  /* height: 100px; */
+  margin-bottom: 3%;
+}
+
+/* 메인 제목 */
+.tmo1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+/* 설명 글 */
+.tmo2 {
+  font-size: 16px;
+  width: 100%;
+}
+
+/* 전체 콘텐츠 박스 (캘린더 + 감정 포함) */
+#mainContentBox {
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: center;
+
+  /* background-color: pink; */
+  width: 100%;
+  /* height: calc(100vh - 100px); */
+  height: 100vh;
+  margin: auto;
+}
+
+/* 캘린더 전체 박스 */
+#calendar-container {
+  /* border: 2px solid black; */
+
+  width: 70%;
+  margin-right: 1%;
+  height: 65%;
+  /* width: 45%; */
+  /* height: 60%; */
+
+  /* overflow: hidden; */
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 캘린더 제목, 버튼 */
+.calendar-header {
+  display: flex;
+
+  justify-content: center;
+  text-align: center;
+  margin-top: 5%;
+
+  color: #333;
+  font-size: 20px;
+  height: 7%;
+}
+
+/* 캘린더 제목 */
+#currentMonthYear {
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  line-height: 2;
+}
+
+/* 캘린더 이동 버튼 */
+.calendar-header button {
+  background-color: white;
+  color: #333;
+  border: none;
+  /* padding: 5px 10px; */
+  font-size: 0.7rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.calendar-header button:hover {
+  background-color: rgb(251, 210, 217);
+}
+
+/* 캘린더 테이블 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 70%;
+  background-color: #fff;
+
+  table-layout: fixed;
+
+  position: flex;
+
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  /* padding: 15px; */
+  text-align: center;
+  vertical-align: top;
+  /* position: relative; */
+  width: 5%;
+  /* max-width: 14%; */
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  box-sizing: border-box;
+  transition: height 0.3s;
+}
+
+td {
+  font-size: 12px;
+  font-weight: bold;
+
+  border: 1px solid #ddd;
+  text-align: center;
+
+  vertical-align: top;
+
+  height: 50px;
+  padding: 5px;
+
+  white-space: nowrap;
+
+  /* 내용의 여백을 조절 */
+}
+
+th {
+  background-color: rgb(251, 210, 217);
+  line-height: 50px;
+  color: #fff;
+
+  font-size: 14px;
+  height: 50px;
+}
+
+td:hover {
+  background-color: rgb(251, 210, 217);
+  color: #fff;
+}
+
+td.selected {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+td.has-content {
+  height: auto;
+  /* 자동으로 크기 조절 */
+}
+
+/* 가계부, 감정입력 전체 */
+#container-box {
+  /* width: 530px;
+            height: 600px; */
+
+  /* width: 45%;
+  height: 60%; */
+
+  width: 30%;
+  height: 65%;
+
+  /* background-color: pink; */
+
+  /* border: 1px solid black; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
+  /* left: 650px;
+    bottom: 550px; */
+
+  padding: 0;
+
+  /* box-sizing: border-box; */
+}
+
+/* 날짜, 감정, 금액 입력창 */
+#containerBoxMain1 {
+  width: 100%;
+  height: 70%;
+
+  padding: 0;
+
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+
+  /* background-color: blue; */
+}
+
+/* 날짜 입력창 */
+#containerbox1 {
+  display: flex;
+  width: 100%;
+
+  margin-top: 14%;
+  margin-left: 2%;
+
+  /* border: 2px solid black; */
+}
+
+/* 날짜 입력값 */
+#selectedDate {
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: auto;
+
+  border: none;
+  outline: none;
+
+  width: 50%;
+
+  box-sizing: border-box;
+  /* display: inline-block; */
+}
+
+/* 입력값 제목 모음 */
+.contianerMainText {
+  /* background-color: pink; */
+  width: 90px;
+
+  margin-left: 2%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 중간 줄 */
+.horizontal-line {
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
+  background-color: #ccc;
+  /* 상단 및 하단 마진을 조절하여 간격을 설정할 수 있습니다. */
+}
+
+/* 감정 버튼 전체 */
+.btnbox-container {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  /* display: flex; */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+/* 감정 모음 */
+.emotionbtnAll {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1%;
+
+  /* border: 1px solid black; */
+}
+
+/* 버튼크기- 박스 크기 - 이미지 크기 */
+
+.btnbox button .img-container {
+  width: 5%;
+  height: 5%;
+  border: none;
+}
+
+.btnbox button {
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+
+  width: 10px;
+}
+
+.btnbox button img {
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  border: none;
+  background-color: transparent;
+}
+
+.btnbox button.active {
+  border-width: 3px;
+}
+
+.btnbox button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* 감정이미지 크기 조절 */
+.emotionImg {
+  width: 55%;
+}
+
+.emotionImg:hover {
+  width: 65%;
+}
+
+/* 지출금액 입력 전체*/
+#containerbox3 {
+  display: flex;
+  width: 100%;
+  margin-left: 2%;
+}
+
+/* 지출 금액 입력 창 */
+.amount-input {
+  width: 50%;
+
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: all 0.3s;
+
+  font-weight: bold;
+  border: none;
+  outline: none;
+  /* border-radius: 5px; */
+}
+
+/* 저장, 초기화 버튼 */
+.buttonAll {
+  /* background-color: pink; */
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 11%;
+  padding-right: 2%;
+}
+
+#input-button {
+  width: 25%;
+  height: 100%;
+
+  padding: 10px;
+
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  line-height: 7%;
+  font-size: 100%;
+}
+
+#input-button:hover {
+  background-color: #2980b9;
+}
+
+#reset-button {
+  /* left: 350px; */
+  margin-left: 10px;
+  width: 25%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  line-height: 7%;
+
+  font-size: 100%;
+}
+
+#reset-button:hover {
+  background-color: #c0392b;
+}
+
+/* 감정 비중 박스 */
+.progressBox {
+  margin: auto;
+
+  margin-top: 2%;
+  width: 100%;
+  height: 28.5%;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  padding-top: 3%;
+
+  /* position: relative; */
+}
+
+.contianerMainTextPro {
+  width: 50%;
+
+  margin-left: 2%;
+  margin-top: 5%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.progress {
+  margin: auto;
+  margin-top: 3%;
+  width: 95%;
+  height: 10%;
+  /* position: absolute; */
+  /* bottom: 100px */
+}
+
+.progress-bar {
+  border-radius: 5px;
+}
+
+#emotion-text {
+  margin-bottom: 10px;
+}
+
+.emotion-circle {
+  position: relative;
+
+  /* width: 5px;
+  height: 5px; */
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.happy {
+  background-color: yellow;
+  /* left: 50%;
+            top: 50%; */
+  /* transform: translate(50%, 50%); */
+}
+
+.sad {
+  background-color: lightblue;
+  /* left: 100%;
+            top: 50%; */
+  /* transform: translate(100%, 50%); */
+}
+
+.angry {
+  background-color: red;
+  /* left: 50%;
+            top: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.boring {
+  background-color: pink;
+  /* left: 50%;
+            top: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.frustrating {
+  background-color: limegreen;
+  /* left: 50%;
+            top: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+.progress-description {
+  font-size: 80%;
+}
+.progress-description-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  margin: auto;
+  /* font-size: 80%; */
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.progress-emotion-circle {
+  display: inline-block;
+
+  width: 10px;
+  height: 10px;
+
+  margin-left: 7px; /* 동그라미 사이의 간격을 조절하세요 */
+}
+.progress-emotion-circle.happy {
+  background-color: yellow;
+}
+.progress-emotion-circle.sad {
+  background-color: lightblue;
+}
+.progress-emotion-circle.angry {
+  background-color: red;
+}
+.progress-emotion-circle.boring {
+  background-color: pink;
+}
+.progress-emotion-circle.frustrating {
+  background-color: limegreen;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  #reset-button {
+    width: 30%;
+  }
+
+  #input-button {
+    width: 30%;
+  }
+
+  .progress-description {
+    font-size: 70%;
+  }
+
+  .emotionImg {
+    width: 90%;
+  }
+
+  .emotionImg:hover {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .cha-content {
+    overflow: scroll;
+  }
+
+  #mainContainerBox {
+    height: 1500px;
+  }
+
+  #mainContentBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #calendar-container {
+    width: 80%;
+    margin-top: 5%;
+  }
+
+  #container-box {
+    width: 80%;
+    margin-top: 5%;
+  }
+
+  .buttonAll {
+    margin-top: 5%;
+  }
+
+  /* .calendar-header {
+        height: 5%;
+       } */
+
+  #currentMonthYear {
+    line-height: 1.5;
+  }
+
+  /* #reset-button {
+    font-size: 80%;
+  }
+
+  #input-button {
+    font-size: 80%;
+  } */
+}

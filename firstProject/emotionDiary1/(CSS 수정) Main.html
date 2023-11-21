@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>차곡차곡</title>
+
+    <!-- Bootstrap CSS CDN 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="./img/face.png" type="image/x-icon" />
+
+    <script src="./index.js"></script>
+
+    <link rel="stylesheet" href="./Main_CSS.CSS" />
+    <link href="./index.css" rel="stylesheet" />
+    <style>
+      *, ::after, ::before {
+    box-sizing: unset;
+}
+
+</style>
+</head>
+  <body>
+    
+    <div class="header">
+      <img src="./img/logo.png" onclick="location.href='./main.html'">
+      <div class="loginBtn" onclick="location.href='./login.html'"> 로그인</div>
+      <!-- <i class="fa-solid fa-bars"></i> -->
+      <img src="./img/menu.svg" class="menuBtn">
+      
+      <div class="user-profile">
+          <div class="user-name">환영합니다<br></div>
+          <img id="profile" src="./img/face.png">
+      </div>
+      <div class="user-name-span">
+          <div class="logoutBtn" onclick="logout();">로그아웃</div>
+      </div>
+
+  </div>
+  <!-- <div class="slide-nav"></div> -->
+  <div class="cha-container">
+      <div class="cha-nav">
+          <div class="nav-loginBtn" onclick="location.href='./login.html'">로그인</div>
+          <div class="nav-user-profile">
+              <div class="nav-user-name">환영합니다<br></div>
+              <img id="profile" src="./img/face.png">
+          </div>
+          <div class="nav-user-name-span">
+              <div class="nav-logoutBtn" onclick="logout();">로그아웃</div>
+          </div>
+          <!-- <div class="nav-user-name-span">
+              <div onclick="logout();">로그아웃</div>
+          </div> -->
+          <ul class="nav-menu">
+              
+              <a href="./index.html">
+                  <li class= "navi-li">
+                    <img src="./img/fedger.svg" class="navi-img">
+                  </li>
+              </a>
+              <a href="./index.html">
+                  <li class="navi-li">
+                      <img src="./img/diary.svg" class="navi-img">다이어리
+                  </li>
+              </a>
+              <a href="./index.html">
+                  <li class="navi-li">
+                      <img src="./img/challenge.svg" class="navi-img">챌린지
+                  </li>
+              </a>
+          </ul>
+          
+          <div class="tetris">
+              <img class="t-sad" src="./img/sad.png">
+              <img class="t-happy" src="./img/happy.png">
+              <img class="t-boring" src="./img/boring.png">
+              <img class="t-frustrating" src="./img/frustrating.png">
+              <img class="t-angry" src="./img/angry.png">
+          </div>
+      </div>
+      <div class="cha-content">
+        <!-- 전체 박스 -->
+        <div id="mainContainerBox">
+          <!-- 제목 -->
+          <div id="mainHeaderText">
+            <div class="tmo1">감정소비 가계부</div>
+            <!-- 설명 -->
+            <div class="tmo2">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto eaque accusamus, consequuntur dolorum distinctio
+              expedita delectus laborum, provident quisquam saepe aut
+              necessitatibus, aliquid voluptatibus magni quasi nobis optio a.
+              In!
+            </div>
+          </div>
+
+          <!-- 캘린더 + 감정 박스 -->
+          <div id="mainContentBox">
+            <!-- 캘린더 -->
+            <div id="calendar-container">
+              <div class="calendar-header">
+                <button onclick="prevMonth()" class="buttonLeft">◀</button>
+                <span id="currentMonthYear"></span>
+                <button onclick="nextMonth()" class="buttonRight">▶</button>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body"></tbody>
+              </table>
+            </div>
+
+            <!-- 감정 가계부 -->
+            <div id="container-box">
+              <div id="containerBoxMain1">
+                <div id="containerbox1">
+                  <label for="selectedDate">
+                    <div class="contianerMainText">날짜</div>
+                  </label>
+                  <input type="text" id="selectedDate" readonly />
+                </div>
+
+                <div class="horizontal-line"></div>
+
+                <div class="btnbox-container">
+                  <div class="contianerMainText">오늘의 감정</div>
+
+                  <div class="emotionbtnAll">
+                    <button
+                      type="button"
+                      class="btnbox btn"
+                      name="emotion"
+                      id="happy"
+                      value="happy"
+                    >
+                      <div class="img-container">
+                        <img src="./IMG/happy.png" class="emotionImg" />
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btnbox btn"
+                      name="emotion"
+                      id="sad"
+                      value="sad"
+                    >
+                      <div class="img-container">
+                        <img src="./IMG/sad.png" class="emotionImg" />
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btnbox btn"
+                      name="emotion"
+                      id="angry"
+                      value="angry"
+                    >
+                      <div class="img-container">
+                        <img src="./IMG/angry.png" class="emotionImg" />
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btnbox btn"
+                      name="emotion"
+                      id="boring"
+                      value="boring"
+                    >
+                      <div class="img-container">
+                        <img src="./IMG/boring.png" class="emotionImg" />
+                      </div>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btnbox btn"
+                      name="emotion"
+                      id="frustrating"
+                      value="frustrating"
+                    >
+                      <div class="img-container">
+                        <img src="./IMG/frustrating.png" class="emotionImg" />
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <div id="containerbox3">
+                  <label for="amount-input">
+                    <div class="contianerMainText">지출 금액</div>
+                  </label>
+                  <input
+                    type="text"
+                    class="amount-input"
+                    placeholder="금액을 입력하세요"
+                  />
+                </div>
+
+                <div class="horizontal-line"></div>
+
+                <div class="buttonAll">
+                  <button id="input-button" onclick="handleInput()">
+                    저장
+                  </button>
+                  <button id="reset-button" onclick="resetCalendar()">
+                    초기화
+                  </button>
+                </div>
+              </div>
+
+              <div class="progressBox">
+                <div class="contianerMainTextPro">전체 감정 통계</div>
+
+                <div class="progress">
+                  <div
+                    class="progress-barHappy"
+                    role="progressbar"
+                    style="background-color: yellow"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+
+                  <div
+                    class="progress-barSad"
+                    role="progressbar"
+                    style="background-color: skyblue"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+
+                  <div
+                    class="progress-barAngry"
+                    role="progressbar"
+                    style="background-color: red"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+
+                  <div
+                    class="progress-barBoring"
+                    role="progressbar"
+                    style="background-color: pink"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+
+                  <div
+                    class="progress-barFrustrating"
+                    role="progressbar"
+                    style="background-color: green"
+                    aria-valuenow="20"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+
+                <div class="progress-description-container">
+                  <!-- 감정 설명 -->
+                  <div class="progress-description" data-emotion="happy">
+                    <div class="progress-emotion-circle happy"></div>
+                    기쁨
+                  </div>
+
+                  <div class="progress-description" data-emotion="sad">
+                    <div class="progress-emotion-circle sad"></div>
+                    슬픔
+                  </div>
+
+                  <div class="progress-description" data-emotion="angry">
+                    <div class="progress-emotion-circle angry"></div>
+                    화남
+                  </div>
+
+                  <div class="progress-description" data-emotion="boring">
+                    <div class="progress-emotion-circle boring"></div>
+                    지루함
+                  </div>
+                  <div class="progress-description" data-emotion="frustrating">
+                    <div class="progress-emotion-circle frustrating"></div>
+                    좌절
+                  </div>
+                </div>
+                <!-- 기쁨, 슬픔, 화남, 지루함, 좌절 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 전역변수
+      let date = new Date();
+      let currentYear = new Date().getFullYear();
+      let currentMonth = new Date().getMonth() + 1;
+      let target;
+      let selectedDateCell;
+
+      // 캘린더 생성 함수 1
+      function createCalendar(year, month) {
+        const container = document.getElementById("calendar-body");
+        container.innerHTML = "";
+
+        const firstDay = new Date(year, month - 1, 1).getDay();
+        const lastDay = new Date(year, month, 0).getDate();
+        const totalWeeks = Math.ceil((firstDay + lastDay) / 7);
+
+        let dayCount = 1;
+        for (let i = 0; i < totalWeeks; i++) {
+          const row = container.insertRow();
+
+          for (let j = 0; j < 7; j++) {
+            const cell = row.insertCell();
+
+            if (i === 0 && j < firstDay) {
+              // 빈 셀: 첫째 날 이전의 빈 셀
+            } else if (dayCount > lastDay) {
+              // 빈 셀: 마지막 날 이후의 빈 셀
+            } else {
+              cell.textContent = dayCount;
+              cell.addEventListener("click", handleDateClick);
+              dayCount++;
+            }
+          }
+        }
+      }
+
+      // 캘린더 생성 함수2
+      function updateCalendarHeader() {
+        document.getElementById(
+          "currentMonthYear"
+        ).textContent = `${currentYear}년 ${currentMonth}월`;
+      }
+
+      function prevMonth() {
+        currentMonth--;
+        if (currentMonth === 0) {
+          currentMonth = 12;
+          currentYear--;
+        }
+        updateCalendar();
+      }
+
+      function nextMonth() {
+        currentMonth++;
+        if (currentMonth === 13) {
+          currentMonth = 1;
+          currentYear++;
+        }
+        updateCalendar();
+      }
+
+      function updateCalendar() {
+        updateCalendarHeader();
+        createCalendar(currentYear, currentMonth);
+      }
+
+      // 날짜를 클릭했을 때 날짜값이 텍스트 박스에 나오게 하는 함수
+      function handleDateClick(event) {
+        const selectedDate = event.target.textContent;
+        target = event.target;
+        document.getElementById(
+          "selectedDate"
+        ).value = `${currentYear}년 ${currentMonth}월 ${target.innerText}일 `;
+        selectedDateCell = target;
+      }
+
+      $(".btnbox").on("click", function () {
+        $(".btnbox").removeClass("active");
+        $(this).addClass("active");
+        showEmotionCircle(); // 감정 버튼을 클릭할 때마다 동그라미 표시
+      });
+
+      // 감정 동그라미 생성 함수
+      function showEmotionCircle() {
+        const emotion = $(".btnbox.active").val();
+        const circle = document.createElement("div");
+        circle.classList.add("emotion-circle", emotion);
+        target.appendChild(circle);
+      }
+
+      // 입력하기 버튼
+      function handleInput() {
+        let amount = $(".amount-input").val();
+        let emotion = $(".btnbox.active").val();
+
+        if (!amount) {
+          alert("값을 입력해주세요!");
+          return;
+
+          console.log(selectedDateCell);
+        }
+
+        // td에 동그라미 추가
+        const circle = document.createElement("div");
+        circle.classList.add("emotion-circle", emotion);
+        // target.appendChild(circle);
+
+        // td에 금액 추가
+        // $(target).append('<br><br>' + amount + '원');
+        $(target).append(`<p class="amount-amount"><br> ${amount}원</p>`);
+
+        // 프로그래스 바 업데이트
+        updateProgressBar(emotion, amount);
+
+        // 기존 코드
+        $(".amount-input").val("");
+        $(".btnbox").removeClass("active");
+      }
+
+      function resetCalendar() {
+        // const selectedDate = document.getElementById("selectedDate").value;
+        const selectedDate = document.getElementById("selectedDate");
+        // $(target).children().removeClass('emotion-circle');
+        $(target).children().remove();
+        // target.removeClass('emotion-circle');
+        console.log(target);
+        // console.log(selectedDate)
+        // console.log($('#selectedDate').val())
+        // if (selectedDateCell) {
+        //   console.log(selectedDateCell)
+        //   selectedDateCell.innerText = "";
+
+        // }
+
+        $("#selectedDate").val("");
+        $(".amount-input").val("");
+        $(".btnbox").removeClass("active");
+
+        $(".progress-barHappy").css("width", "0%");
+        $(".progress-barSad").css("width", "0%");
+        $(".progress-barAngry").css("width", "0%");
+        $(".progress-barBoring").css("width", "0%");
+        $(".progress-barFrustrating").css("width", "0%");
+      }
+
+      function updateProgressBar(emotion, amount) {
+        // 프로그래스 바 업데이트
+        const progressBar = $(
+          ".progress-bar" + emotion.charAt(0).toUpperCase() + emotion.slice(1)
+        );
+        let currentWidth = parseInt(progressBar.css("width"));
+        currentWidth += parseInt(amount); // 간단한 업데이트 로직, 적절히 수정 가능
+        progressBar.css("width", currentWidth + "%");
+      }
+
+      updateCalendar();
+    </script>
+  </body>
+</html>
