@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+    <!-- 띄어쓰기 주의 -->
+    <%- include('./component/header')%>
+    <h1>Hello EJS</h1>
+    <% for (let i =0; i<5; i++){ %>
+        <div>hi~ <%=i %>번째</div>
+        <%=i %>
+    <% } %>
+
+</body>
+</html>
