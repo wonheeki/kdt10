@@ -1,4 +1,19 @@
 header{
-    background-color: rgb(75, 105, 132);
+    background-color: black;
     color:white;
+    height:80px;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    padding:0;
+}
+ul li{
+    line-height: 80px;
+    display: inline-block;
+    margin-right:20px;
+
 }

@@ -16,13 +16,35 @@ console.log(__dirname); // ~~/07-3-express
 
 // app.get(경로, 해당경로로 들어왔을 때 실행할 함수)
 // localhost:8000/ 경로로 접속했을 때
-app.get('/kdt',function(req, res){
+app.get('/',function(req, res){
     // res.send(응답 내용)
     // res.send('<h1>Hello Express</h1>');
 
     // index라는 파일명을 찾아서 해당 파일 렌더
-    res.render('index');
+    // index 파일에 {}값 보내기
+    res.render('index' ,{
+        btns:['사과','오렌지','키위'],
+        isLogin:false,
+        me:{
+            name:'gildong',
+            msg:'반갑습니다'
+        }
+    });
 })
+
+// controller와 유사하네
+
+// login 경로로 접속했을 때
+app.get('/login',function(req,res){
+    res.render('login')
+})
+
+// register 경로로 접속했을 때
+app.get('/register',function(req,res){
+    res.render('register')
+})
+
+// 보안을 위해? 감춰준다?
 
 app.listen(PORT, function(){
     console.log(`server listening on ${PORT}`);

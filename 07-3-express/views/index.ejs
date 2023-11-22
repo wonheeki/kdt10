@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
-    <link rel="stylesheet" href="./static/css/index.css">
+    <%- include('./component/head.ejs',{title : 'Home'}) %>
 </head>
 <body>
     <!-- 띄어쓰기 주의 -->
@@ -15,5 +14,21 @@
         <%=i %>
     <% } %>
 
+
+    <!-- btns 버튼 -->
+    <!-- app.js에서 보낸 데이터가 프론트에서 출력 -->
+    <% console.log(btns)%>
+    <% for (let btn of btns) {%>
+        <button type="button" class="btn btn-info"><%= btn %></button>
+    <% }%>
+
+      <!-- isLogin -->
+      <% if(isLogin){ %>
+        <h4>아직 로그인을 안했군요</h4>
+        <% }else{ %>
+            <h4>로그인 완료</h4>
+        <div><%= me.name%></div>
+        <div><%= me.msg%></div>
+    <% }%>
 </body>
 </html>
