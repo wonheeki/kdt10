@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* label{
+            border:1px solid black;
+            display: block;
+            height:50px;
+            line-height: 50px;
+            padding-left:20px;
+
+        }
+        span{
+            background-color: white;
+            position:relative;
+            top:10px;
+            left:10px;
+        }
+        select{
+            width:100px;
+        }
+        label#choice{
+            height:100px;
+        } */
+    </style>
+</head>
+<body>
+    <form action="/p1Result" method="post">
+       
+       이름
+    <input type="text" name="name" id="name">
+    <br>
+    <fieldset>
+        <legend>성별</legend>
+        <label for="gender">
+            <input type ="radio" name="gender" value="남자">남자
+            <input type ="radio" name="gender" value="여자">여자
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>생년월일</legend>
+        <label for="birthday">
+            <select class="year" name="year">
+                <% for(let i =1940;i<=2023;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>년
+            <select class="month" name="month">
+                <% for(let i =1;i<=12;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>월
+            <select class="day" name="day">
+                <% for(let i =1;i<=31;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>일
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>관심사</legend>
+        <label for ="interest">
+            <input type="checkbox" name="interest" value="여행">여행
+            <input type="checkbox" name="interest" value="패션">패션
+            <input type="checkbox" name="interest" value="음식">음식
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>선택</legend>
+        <label for ="choice" id="choice">
+            좋아하는 색상 <input type="color" name="color" ><br>
+            좋아하는 숫자<input type="number" name="number" >
+            
+        </label>
+    </fieldset>
+        <br>
+        <button>회원가입</button>
+    </form>
+
+    <script>
+        // window.addEventListener('DOMContentLoaded', function() {
+        //     let year =document.querySelector('.year');
+        //     let month = document.querySelector('.month');
+        //     let day = document.querySelector('.day');
+        //     for(let i =1940;i<=2023;i++){
+        //         let option = document.createElement('option');
+        //         console.log(option);
+        //         // option.value = i;
+        //         option.setAttributes('value',i);
+        //         option.innerText=i;
+        //         year.append(option);
+        //     }
+
+        //     for(let i =1;i<=12;i++){
+        //         let option = document.createElement('option');
+        //         // option.setAttributes('value',i);
+        //         option.innerText=i;
+        //         month.append(option);
+        //     }
+
+        //     for(let i =1;i<=31;i++){
+        //         let option = document.createElement('option');
+        //         // option.setAttributes('value',i);
+        //         option.innerText=i;
+        //         day.append(option);
+        //     }
+
+        // });
+    </script>
+</body>
+</html>

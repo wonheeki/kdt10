@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        const color=`<%= userInfo.color %>`
+        console.log(color)
+    </script> -->
+     <style>
+         span{
+            color: coral;
+            font-weight: 700;
+        }
+        span#myColor{
+            color: <%= userInfo.color %>;
+        }
+     </style>
+</head>
+<body>
+    <h2>
+        <span><%=title %></span>방식입니다<br>
+        이름은 <span><%=userInfo.name %></span>입니다<br>
+        성별은 <span><%=userInfo.gender %></span>입니다<br>
+        생년월일은 <span><%=userInfo.year %></span>년 <span><%=userInfo.month %></span>월<span><%= userInfo.day %></span>일입니다<br>
+        관심사는 <span><%=userInfo.interest %></span>입니다<br>
+       
+        좋아하는 색상은 <span id="myColor"><%=userInfo.color %></span>입니다<br>
+        좋아하는 숫자는 <span><%=userInfo.number %></span>입니다
+    </h2>
+
+</body>
+</html>

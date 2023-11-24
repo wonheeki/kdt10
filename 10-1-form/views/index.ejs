@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 전송</title>
+</head>
+<body>
+    <h1>Form</h1>
+    
+    <h2>Get 요청</h2>
+    <form action="/login" method="get">
+        <!-- label의 for과 input의 id가 같아야 연결이됨 -->
+        <label for="id">ID</label>
+        <input type="text" name="id" id="id" placeholder="ID는 최소 세글자" required minlength="3">
+        <label for="pw">PW
+            <input type="password" name="pw" placeholder="PW" id="pw" required>
+        </label>
+        <input type="number" name="grade" placeholder="GRADE" max="4">
+
+        <!-- form 태그 안에 있는 button 태그는 type : submit -->
+        <button>제출</button>
+    </form>
+
+    <h2>Post 요청</h2>
+    <!-- pattern 속성 : 폼 요소에 값 입력되었을 때, 그 입력된 값에 대해 검증 -->
+
+    <!-- method 가 다르기때문에 action의 url이 같아도 상관 없다 -->
+
+    <!-- required 속성 : 폼 요소에 값이 반드시 들어가야하는지 여부를 결정 -->
+    <form action="/login" method="post">
+        <label for="id">ID</label>
+        <input type="text" name="id" id="id" placeholder="ID" pattern="^([a-zA-Z0-9가-힣]){4,10}$" title="아이디는 대소문자, 숫자, 한글로 구성된 4자리 이상의 문자여야 한다." required>
+        <label for="pw">PW
+            <input type="password" name="pw" placeholder="PW" id="pw" pattern="^([a-z0-9]){8,12}$" required>
+        </label>
+        <button>제출</button>
+    </form>
+
+    <h2>JS 유효성 검사</h2>
+    <!-- javascript 폼 유효성 검사 -->
+    <form action="/js-form-check" method="post" name="valiForm" onsubmit="return CheckForm(this);" target="_blank">
+        <input type="text" name="id" minlength="1" placeholder="id", title="최소 1글자">
+        <span>우편물 수령장소</span>
+        <input type="checkbox" name="post" value="자택">자택
+        <input type="checkbox" name="post" value="회사">회사
+        <button>제출</button>
+    </form>
+    <script>
+        function CheckForm(form) {
+            // 1) name으로 폼 선택
+            // const form =document.forms('valiForm');
+            // 2) this로 보내서 매개변수로 받기
+            console.log(form);
+
+            if(form.id.value == ''){
+                form.id.focus();
+                alert('아이디를 입력해주세요')
+
+                // submit 이벤트가 일어나지 않음
+                return false;
+            }
+
+            // 각각의 input 요소의 name 속성값으로 접근
+            if((form.post[0].checked == false )&&(form.post[1].checked == false)){
+                alert('우편물 수령 장소를 선택해주세요.')
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
