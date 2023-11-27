@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- jQuery CDN -->
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+     <!-- axios CDN -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <form name="register">
+       
+       이름
+    <input type="text" name="name" id="name">
+    <br>
+    <fieldset>
+        <legend>성별</legend>
+        <label for="gender">
+            <input type ="radio" name="gender" value="남자">남자
+            <input type ="radio" name="gender" value="여자">여자
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>생년월일</legend>
+        <label for="birthday">
+            <select class="year" name="year">
+                <% for(let i =1940;i<=2023;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>년
+            <select class="month" name="month">
+                <% for(let i =1;i<=12;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>월
+            <select class="day" name="day">
+                <% for(let i =1;i<=31;i++){ %>
+                    <option value= "<%=i%>"><%=i%></option>
+                <% } %>
+            </select>일
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>관심사</legend>
+        <label for ="interest">
+            <input type="checkbox" name="interest" value="여행">여행
+            <input type="checkbox" name="interest" value="패션">패션
+            <input type="checkbox" name="interest" value="음식">음식
+        </label>
+    </fieldset>
+   
+        <br>
+        <button type="button" onclick="axoisGet();">회원가입</button>
+    </form>
+    <div class="result"></div>
+
+    <script>
+      
+       const resultBox = document.querySelector('.result');
+       
+       function axoisGet(){
+        const form = document.forms['register'];
+        console.log(form.name);
+        console.log(form.interest); 
+        console.log(form.name.value); // value 라는 속성에 접근 O => 하나의 요소로 반환 
+        console.log(form.interest.value); // value 라는 속성에 접근 X => NodeList 형태로 반환 (name="interst"인 요소가 많아서)
+
+        // interest checkBox 정보 출력하고 싶은 경우, 다음과 같이 새로운 배열로 정의
+
+        // case1. forEach문 사용
+        /*
+        const hobbies = [];
+        form.interest.forEach((item)=>{
+            if(item.checked){ // 체크가 되어있으면 true 반환
+                hobbies.push(item.value)
+            }
+        })
+        */
+
+        // case 2. filter, map 반복문 사용
+        // Array.from(arrayLike) : 유사 배열 객체를 배열로 변환
+        const hobbies = Array.from(form.interest).filter((elem)=>elem.checked ===true)
+        .map((elem)=>elem.value);
+
+        console.log('hobbies > ', hobbies);
+
+        const data = {
+            name : form.name.value,
+            gender:form.gender.value,
+            birthYear: form.year.value,
+            birthMonth: form.month.value,
+            birthDay : form.day.value,
+            interest : hobbies
+       }
+       console.log('data > ',data)
+
+        axios({
+            url:'/axiosRegister',
+            method:'get',
+            params:data
+        }).then((response)=>{
+            console.log(response);
+            // const {name, gender,year,month,day,interest}= response.data;
+
+            const {name,gender,birthYear,birthMonth,birthDay,interest} = response.data;
+                    
+            resultBox.textContent=`Get /axios 요청 완료 ! ${name}님의 성별은 ${gender}! 생년월일은 ${birthYear}년 ${birthMonth}월${birthDay}일! 관심사는 ${interest}`;
+
+        })
+       }
+    </script>
+</body>
+</html>

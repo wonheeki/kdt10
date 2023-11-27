@@ -6,7 +6,7 @@ const PORT = 8000;
 // view engine 등록(view engine으로 뭘 사용할 것인지)
 app.set('view engine','ejs');
 // 어떤 폴더로 접근해야 되는지
-app.set('./views','views');
+app.set('views', './views'); // view 템플릿 파일을 찾을 때 사용할 디렉토리
 
 // 미들웨어 등록
 

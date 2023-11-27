@@ -5,7 +5,7 @@ const PORT = 8000;
 // express 에 사용할 템플릿 엔진 종류를 ejs로 등록
 app.set('view engine','ejs');
 // 템플릿 엔진 파일(.ejs)을 저장할 위치 등록
-app.set('views','./views');
+app.set('views', './views');
 
 // static 미들웨어 등록 (정적 파일 로드 ex. css, javascript)
 // static 이라는 실제 폴더를 static 이름으로 접근하겠다
