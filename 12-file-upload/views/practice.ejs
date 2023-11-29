@@ -4,32 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+ <!-- jQuery CDN -->
+ <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+ <!-- axios CDN -->
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ <style>
+     .pic{
+         width:200px;
+         height:200px;
+         border-radius: 50%;
+         box-shadow: 0 0 20px #0002;
+     }
+ </style>
 </head>
 <body>
-    <form>
-        <input type="text" name="userId" id="userId" placeholder="아이디"><br>
-        <input type="password" name="userPw" id="userPw" placeholder="비밀번호"><br>
-        <input type="text" name="name" id="name" placeholder="이름"><br>
-        <input type="text" name="age" id="age" placeholder="나이"><br>
+    <form action="/upload/practice" method="post" enctype="multipart/form-data"> 
+        <input type="text" name="id" id="id" placeholder="아이디"><br>
         <input type="file" name="profile" id="profile">
         <br><br>
-        <button type="button" onclick="register">회원가입</button>
+        <button>회원가입</button>
     </form>
-</body>
-<script>
-    function register(){
-        const formData = new FormData();
-        const file=document.querySelector('.profile')
-        axios({
+    <hr>
+    <h2>동적 폼 전송</h2>
+    <form name="submit"> 
+        <input type="text" name="id" id="id" placeholder="아이디"><br>
+        <input type="file" name="profile" >
+        <br><br>
+        <button type = "button" onclick="register();">회원가입</button>
+    </form>
+    </body>
+    <script>
+        function register(){
+            const form = document.forms['submit'];
+            const formData = new FormData();
+            console.log(form.id); // id 요소
+            console.log(form.profile); // 파일 요소
 
-            method:'post',
-            url:'/practice/register',
-            data:formData,
+            console.log(form.profile.files);
+            console.log(form.profile.files[0].name);
+            // 파일 객체 변경 불가
+            // form.profile.files[0].name = form.id.value;
+            // console.log('변경 후 : ',form.profile.files[0].name)
+            
+            const file = form.profile.files[0];
+            const fileName= form.profile.files[0].name;
+            const userId = form.id.value;
+            
+            /*
+            // 확장자
+                const ext = fileName.split('.')[1];
+                console.log(ext);
+
+                // 파일 이름 변경
+                const newFile = new File([file], `${userId}.${ext}`,{type:file.type});
+                console.log(newFile);
+             */
+
+            // multer 세부 설정에서 req.body를 쓰고 싶다면, 파일을 맨 마지막 append
+            // client 가 body에 머시기 순서가 뭐 어쨌다고?
+            // req.body랑 연관
+            formData.append('id',userId);
+            formData.append('profile',file)
+
+
+            axios({
+                method:'post',
+                url:'/upload/practice2',
+                data:formData,
                 headers:{
-                    'Content-Type' : 'multipart/form-data',
-                    // enctype 지정과 동일
+                    "Content-Type" : "multipart/form-data",
+                    
                 }
-        })
-    }
-</script>
+            })
+           
+        }
+    </script>
 </html>

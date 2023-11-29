@@ -35,6 +35,29 @@ const uploadDetail = multer({
     limits: { fileSize: 5 * 1024 * 1024 },
 });
 
+
+// multer 세부 설정 : 실습용
+const uploadPractice = multer({
+    // storage : 저장할 공간에 대한 정보
+    storage: multer.diskStorage({
+        // destination 경로 설정
+        destination(req, file, done) {
+            // done : 콜백함수
+            // done(null, xx) : null -> 에러가 없다는 의미
+            done(null, 'uploads/'); // 파일을 업로드할 경로 설정
+        },
+        filename(req, file, done) {
+
+            console.log("file name > req.body : ",req.body); // { id: 'd' }
+            const ext = path.extname(file.originalname);
+            done(null,req.body.id + ext);
+    
+        },
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 },
+});
+
+
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
@@ -58,14 +81,14 @@ app.post('/upload', uploadDetail.single('userfile'), (req, res) => {
     // req.file
     /*
         {
-        fieldname: 'userfile', // 폼에 정의한 name 값
-        originalname: 'ìº¡ì²\x98.PNG', // 원본 파일명
-        encoding: '7bit', // 파일 인코딩 타입
-        mimetype: 'image/png', // 파일 타입
-        destination: 'uploads/', // 파일 저장 경로
-        filename: 'ìº¡ì²\x981701054979015.PNG', // 저장된 파일명
-        path: 'uploads\\ìº¡ì²\x981701054979015.PNG', // 업로드된 파일 전체 경로       
-        size: 4641   // 파일 크기
+            fieldname: 'userfile', // 폼에 정의한 name 값
+            originalname: 'ìº¡ì²\x98.PNG', // 원본 파일명
+            encoding: '7bit', // 파일 인코딩 타입
+            mimetype: 'image/png', // 파일 타입
+            destination: 'uploads/', // 파일 저장 경로
+            filename: 'ìº¡ì²\x981701054979015.PNG', // 저장된 파일명
+            path: 'uploads\\ìº¡ì²\x981701054979015.PNG', // 업로드된 파일 전체 경로       
+            size: 4641   // 파일 크기
         }
     */
 })
@@ -110,10 +133,19 @@ app.get('/practice',(req,res)=>{
     res.render('practice');
 })
 
-app.post('/practice/register',uploadDetail.single('profile'),
+app.post('/upload/practice',uploadPractice.single('profile'),
 (req,res)=>{
     console.log(req.file);
     console.log(req.body);
+    res.send('응답')
+
+})
+app.post('/upload/practice2',uploadPractice.single('profile'),
+(req,res)=>{
+    console.log(req.file);
+    console.log(req.body);
+    res.send('회원가입 완료')
+
 })
 
 app.listen(PORT, () => {
