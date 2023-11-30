@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+       <!-- jQuery CDN -->
+       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+       <!-- axios CDN -->
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .container{
+            margin:0 auto;
+            border:1px solid #f1f1f1;
+            width:400px;
+            height:400px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top:100px;
+        }
+        input{
+            width:300px;
+            height:30px;
+            margin-bottom:10px;
+        }
+        img{
+            width:200px;
+            margin:0 auto;
+        }
+        button{
+            width:310px;
+            height:30px;
+            background-color:#00d05d;
+            color:white;
+            border :none;
+            font-weight: bold;
+        }
+        .result{
+            /* border:1px solid black; */
+            height:30px;
+            width:300px;
+            margin:0 auto;
+        }
+        .blue{
+            color:blue;
+        }
+        .red{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Naver_Logotype.svg/782px-Naver_Logotype.svg.png" alt="네이버"><br><br><br>
+        <form name="login">
+            <input type="text" name="id" id="id" placeholder="Enter the ID"><br>
+            <input type="password" name="pw" id="pw" placeholder="Enter the PW">
+            <div class="result"></div>
+
+            <button type="button" onclick="checkID();">로그인</button>
+        </form>
+    </div>
+
+    <script>
+        const resultBox= document.querySelector('.result');
+
+        function checkID(){
+        const form = document.forms['login'];
+        const data = {
+            id : form.id.value,
+            pw:form.pw.value
+       }
+
+       // form validation
+       if(!form.id.checkValidity() || !form.pw.checkValidity()){
+        resultBox.textContent='아이디와 패스워드는 필수값입니다.';
+        return;
+       }
+
+        axios({
+            url:'/login/loginCheck',
+            method:'post',
+            data:data
+        }).then((response)=>{
+            console.log(response.data.isSuccess);
+            // console.log(response.data); // { id: 'ㅁ', pw: 'd' }
+
+            if(response.data.isSuccess){
+                // 로그인 성공
+                resultBox.textContent = `로그인 성공!`;
+                resultBox.classList.remove('red');
+                resultBox.classList.add('blue');
+            }else{
+                resultBox.textContent=('아이디 또는 비밀번호를 다시 입력하세요')
+                resultBox.classList.add('red');
+                resultBox.classList.remove('blue');
+            }
+
+        }).catch((error)=>{
+            console.log(error)
+        })
+       }
+
+    </script>
+</body>
+</html>
