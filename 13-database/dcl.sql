@@ -20,3 +20,12 @@ revoke privileges on *.* from 'user'@'localhost';
 
 grant all privileges on *.* to 'user'@'localhost';
 grant all privileges on *.* to 'user'@'%';
+
+-- 계정 삭제 
+drop user 'user3'@'%';
+
+-- 계정 수정(비밀번호 변경)
+alter user 'user'@'localhost' identified by '1234';
+
+-- 저장
+flush privileges;

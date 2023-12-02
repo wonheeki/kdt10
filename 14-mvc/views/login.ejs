@@ -89,7 +89,7 @@
 
             if(response.data.isSuccess){
                 // 로그인 성공
-                resultBox.textContent = `로그인 성공!`;
+                resultBox.textContent = `${response.data.userId}님 로그인 성공!`;
                 resultBox.classList.remove('red');
                 resultBox.classList.add('blue');
             }else{
