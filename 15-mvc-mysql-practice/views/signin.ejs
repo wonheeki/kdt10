@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <hr>
+    <h1>로그인</h1>
+    <form name="login-form">
+        ID <input id="userid" name="userid"><br>
+        PW <input type="password" id="pw" name="userpw"><br>
+        <button type="button" onclick="login();">Login</button><br>
+    </form>
+    <a href="/user/signup">Register</a>
+
+    <!-- 로그인 버튼 클릭하면 성공시 profile.ejs에서 특정 유저 정보를 보여줘야 하기 때문에 userid 정보를 value에 저장해서 넘겨줌-->
+    <form name="form_info" method="post" action="/user/profile">
+        <input name="userid" hidden>
+    </form> 
+
+</body>
+<script>
+    async function login(){
+        // const form = document.forms['login-form'];
+        // axios({
+        //     method:'POST',
+        //     url:'/user/signin/login',
+        //     data:{
+        //         userid:form.userid.value,
+        //         pw:form.pw.value,
+        //     },
+        // }).then((res)=>{
+        //     if (res.data === 'pwFail') {
+        //         alert('비밀번호 불일치');
+        //     } else if (res.data === 'idFail') {
+        //         alert('아이디 불일치');
+        //     } else {
+        //         // 정상적인 응답을 받았을 때에만 이동
+        //         form.reset();
+        //         alert('로그인 완료!');
+
+        //         const form_info = document.forms['form_info'];
+        //         form_info.userid.value=form.userid.value;
+        //         form_info.submit();
+        //         form_info.reset();
+                
+        //     }
+        // })
+
+        const form_login=document.forms['login-form'];
+
+        if(!form_login.checkValidity()){
+            form_login.reportValidity();
+            return;
+        }
+
+        try{
+            let res = await axios({
+                method:'POST',
+                url:'/user/signin',
+                data:{
+                    userid:form_login.userid.value,
+                    pw:form_login.pw.value,
+                },
+            })
+
+            console.log(res.data);
+            const {data} = res;
+            
+            if(data.isLogin){
+                alert('로그인 성공');
+
+                // profile 요청 보내기
+                const form_info = document.forms['form_info'];
+                form_info.userid.value=form_login.userid.value;
+                form_info.submit();
+                form_info.reset();
+            }else{
+                alert('로그인 실패');
+                form_login.reset();
+            }
+        }catch(e){
+            console.log(e);
+        }
+    }
+</script>
+</html>

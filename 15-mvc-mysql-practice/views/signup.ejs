@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <hr>
+    <h1>회원가입</h1>
+    <form name="register-form" ><!--action="/user/signup/register" method="post"-->
+        ID <input id="userid" name="userid"><br>
+        Password <input type="password" id="pw" name="pw"><br>
+        Name <input id="name" name="name"><br>
+        <button type="button" onclick="register();">Register</button>
+    </form>
+    <a href="/user/signin">Login</a>
+</body>
+
+<script>
+    function register(){
+    const form = document.forms['register-form'];
+
+    if(form.userid.value.length===0 || form.pw.value.length===0 || form.name.value.length===0){
+        alert('아이디, 패스워드, 이름을 입력해주세요!');
+        return;
+    }
+    
+    if(form.name.value.length>10){
+        alert('이름은 10글자 미만입니다.');
+        return;
+    }
+    
+
+    axios({
+        method:'POST',
+        url:'/user/signup/register',
+        data:{
+            userid:form.userid.value,
+            pw:form.pw.value,
+            name:form.name.value,
+        }
+    }).then((res)=>{
+        console.log(res.data);
+        // 입력창 초기화
+        form.reset();
+        alert('회원가입 완료!');
+        location.href='/user/signin';
+    })
+}
+
+</script>
+</html>

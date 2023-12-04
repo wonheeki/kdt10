@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <hr>
+    <h1>회원정보</h1><br>
+    <a href="/user/signin">Login</a>
+    <p>ID 수정 불가능, Password, Name 수정 가능</p>
+    <form name="update-form" >
+        <input id="id" name="id" value= <%=userInfo.id %> disabled hidden><br>
+        ID <input id="userid" name="userid" value= <%=userInfo.userid %> disabled ><br>
+        Password <input type="password" id="pw" name="pw" value= <%=userInfo.pw %>><br>
+        Name <input id="name" name="name" value= <%=userInfo.name %>><br>
+        <button type="button" onclick="edit(`<%=userInfo.id %>`);">Edit</button>
+        <button type="button" onclick="del(`<%=userInfo.id %>`);">Delete</button>
+    </form>
+</body>
+<script>
+    function edit(id){
+        const form = document.forms['update-form'];
+
+        if(!form.checkValidity()){
+            form.reportValidity();
+            return;
+        }
+
+        axios({
+            method:'PATCH',
+            url:'/user/profile/edit',
+            data:{
+                id:id,
+                userid : form.userid.value,
+                pw:form.pw.value,
+                name:form.name.value,
+            }
+        }).then((res)=>{
+            alert('수정 성공!')
+            document.querySelector('#pw').textContent= form.name.value;
+            document.querySelector('#name').textContent= form.name.value;
+            // location.href='/user/profile'
+            
+        })
+    }
+
+    function del(id){
+
+        if(!form.checkValidity()){
+            form.reportValidity();
+            return;
+        }
+        
+        axios({
+            method:'DELETE',
+            url:'/user/profile/delete',
+            data:{
+                id:id,
+            }
+        }).then((res)=>{
+            location.href='/user'
+        })
+    }
+</script>
+</html>
