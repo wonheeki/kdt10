@@ -29,6 +29,9 @@ const User = (Sequelize,DataTypes)=>{
         }
     )
     return model;
+
+    // return model을 생략하고 싶다면 const model = 하지않고 바로 return 해주면 된다.
+    // 여기서 model은 객체인가?
 }
 
 module.exports = User;

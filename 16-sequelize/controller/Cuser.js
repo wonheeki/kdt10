@@ -31,6 +31,7 @@ exports.post_signup = (req, res) => {
         name:req.body.name,
         pw:req.body.pw
     }).then((result)=>{
+        console.log('create > ',result);
         res.send(result);
     })
 
@@ -50,6 +51,7 @@ exports.post_signin = (req, res) => {
                 pw:req.body.pw        
     }
     }).then((result)=>{
+        console.log('findAll > ', result);
         if (result.length > 0) res.send({ isLogin: true, userInfo: result[0] });
         else res.send({ isLogin: false });
     })
@@ -65,8 +67,35 @@ exports.post_profile = (req, res) => {
     // })
 
     User.findAll({
+        // 만약 result를 { id: 15, userid: 'y', name: 'y', pw: 'y' } 이 값만 받고싶다?
+        // raw : true, // 를 추가하면 됨
         where:{userid:req.body.userid}
     }).then((result)=>{
+        console.log('findAll > ', result);
+        // console에서는 User 객체 자체로 확인할 수 있지만
+
+        // User 객체
+        /*
+            [
+                user {
+                    dataValues: { id: 15, userid: 'y', name: 'y', pw: 'y' },
+                    _previousDataValues: { id: 15, userid: 'y', name: 'y', pw: 'y' },
+                    uniqno: 1,
+                    _changed: Set(0) {},
+                    _options: {
+                    isNewRecord: false,
+                    _schema: null,
+                    _schemaDelimiter: '',
+                    raw: true,
+                    attributes: [Array]
+                    },
+                    isNewRecord: false
+                }
+            ]
+        */
+        // render나 send같이 프론트로 보낼 때는 { id: 15, userid: 'y', name: 'y', pw: 'y' } 이 값만 간다.
+
+        
         if (result.length > 0) res.render('profile', { data: result[0] })
     })
 }
@@ -83,6 +112,7 @@ exports.edit_profile = (req, res) => {
     },{
         where:{id:req.body.id}
     }).then((result)=>{
+        console.log('update > ', result);
         res.send('회원정보 수정 성공!')
     })
 }
@@ -98,6 +128,7 @@ exports.delete_profile = (req, res) => {
     User.destroy({
         where:{id:req.body.id}
     }).then((result)=>{
+        console.log('destroy > ', result);
         res.send('삭제성공');
     })
 }
