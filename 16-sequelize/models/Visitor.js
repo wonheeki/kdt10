@@ -24,7 +24,7 @@ const Visitor = (Sequelize,DataTypes)=>{
             }
         }, // param2 : 컬럼 정의
         {
-            tableName : 'visitor2', // 실제 DB 테이블 이름 명시
+            tableName : 'visitor', // 실제 DB 테이블 이름 명시
             freezeTableName : true, // 첫번째 인자로 넘겨준 모델 이름을 그대로 테이블 이름으로 고정
             // 시퀄라이즈는 기본적으로 테이블 이름을 모델 + s로 가져가요
             // charset, collate 값이 있는데 db정의할 때 한글 인코딩 가능하도록 만들어뒀기 때문에 따로 설정할 필요는 없다.

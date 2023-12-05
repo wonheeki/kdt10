@@ -77,7 +77,7 @@ exports.post_profile=(req,res)=>{
         if(result.length>0){
             res.render('profile',{userInfo:result[0]})
         }
-        // res.render('profile',{userInfo:result});
+        res.render('profile',{userInfo:result});
 
     })
 }
