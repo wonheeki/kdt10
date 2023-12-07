@@ -22,7 +22,7 @@ const Team = require('./Team')(sequelize,Sequelize);
 // 한 선수당 하나의 프로필을 가짐
 Player.hasOne(Profile,{
     foreignKey : 'player_id',
-    sourceKey : 'player_id',
+    sourceKey : 'player_id', 
     // 연쇄 삭제 수정
     onDelete:'CASCADE',
     onUpdate:'CASCADE',     
@@ -30,7 +30,8 @@ Player.hasOne(Profile,{
 
 Profile.belongsTo(Player, {
     foreignKey:'player_id',
-    targetKey:'player_id'
+    // 참조할 foreign key 칼럼명을 다르게 두고 싶다면 Player.js 에 바꾸고싶은 칼럼명으로 칼럼을 정의해줘야된다.
+    targetKey:'player_id' // 기본키 사용시 생략가능
 })
 
 // 2) Team: Player = 1: N
