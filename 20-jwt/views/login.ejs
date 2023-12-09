@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <!-- axios CDN -->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name ='login-form'>
+        <input type="text" id="id" placeholder="id" name="id"><br>
+        <input type="password" id="pw" placeholder="pw" name="pw"><br>
+        <button type="button" onclick="login();">로그인</button>
+    </form>
+
+    <script>
+        async function login(){
+            const form = document.forms['login-form'];
+
+            try {
+                const res = await axios({
+                    method:'POST',
+                    url:'/login',
+                    data:{
+                        id:form.id.value,
+                        pw:form.pw.value
+                    }
+                })
+                console.log('login res.data >',res.data);
+                if(res.data.isLogin){
+                    localStorage.setItem('login',res.data.token);
+                    document.location.href='/';
+                }else{
+                    // 아이디나 비밀번호가 틀린 경우
+                    alert(res.data.msg);
+                    form.reset();
+                }
+            } catch (err) {
+                console.log('login err>', err);
+            }
+        }
+    </script>
+</body>
+</html>

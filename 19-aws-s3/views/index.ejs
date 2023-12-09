@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS S3</title>
+    <!-- axios CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+   
+    </style>
+</head>
+<body>
+    <form>
+        <input type="file" id="files" multiple><br>
+        <button type="button" onclick="fileUpload()">업로드</button><br>
+        <div class="result"></div>
+    </form>
+    <script>
+        const resultbox = document.querySelector('.result');
+
+        async function fileUpload(){
+            const file = document.querySelector('#files');
+            console.log(file.files); // [ {},{} ]
+
+            const formData = new FormData();
+
+            // 파일 여러개니까 반복문 사용
+            for(let i = 0;i<file.files.length;i++){
+                formData.append('files',file.files[i]);
+            }
+
+            // axios 요청
+            try {
+                const res = await axios({
+                    method:'post',
+                    url:'/upload',
+                    data:formData,
+                    headers:{
+                        'Content-Type':'multipart/form-data'
+                    }
+                })
+                console.log(res.data) // [ {}, {} ] => location : src 속성값으로
+                res.data.forEach((elem)=>{
+                    const img = document.createElement('img');
+                    img.src=elem.location;
+                    img.alt = elem.originalname;
+                    img.style.width ="500px";
+                    resultbox.appendChild(img);
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+</html>
