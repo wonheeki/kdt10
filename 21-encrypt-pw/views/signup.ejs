@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+       <!-- jQuery CDN -->
+       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+       <!-- axios CDN -->
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .container{
+            margin:0 auto;
+            border:1px solid #f1f1f1;
+            width:400px;
+            height:400px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top:100px;
+        }
+        input{
+            width:300px;
+            height:30px;
+            margin-bottom:10px;
+        }
+        img{
+            width:200px;
+            margin:0 auto;
+        }
+        button{
+            width:310px;
+            height:30px;
+            background-color:#00d05d;
+            color:white;
+            border :none;
+            font-weight: bold;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Naver_Logotype.svg/782px-Naver_Logotype.svg.png" alt="네이버"><br><br><br>
+        <form name="register-form">
+            <input type="text" name="userid" id="userid" placeholder="Enter the ID"><br>
+            <input type="password" name="pw" id="pw" placeholder="Enter the PW">
+            <input type ="text" name ="name" id="name" placeholder="Enter the name">
+            <button type="button" onclick="register()">회원가입</button>
+        </form>
+    </div>
+
+    <script>
+
+        function register(){
+        const form = document.forms['register-form'];
+        const data = {
+            pw:form.pw.value,
+            name:form.name.value,
+            userid:form.userid.value
+       }
+
+       console.log(data);
+       // form validation
+       if(!form.userid.checkValidity() || !form.pw.checkValidity()){
+        resultBox.textContent='아이디와 패스워드는 필수값입니다.';
+        return;
+       }
+
+        axios({
+            url:'/register',
+            method:'post',
+            data:data
+        }).then((response)=>{
+            document.location.href='/signin';
+            console.log(response.data); // { id: 'ㅁ', pw: 'd' }
+
+        }).catch((error)=>{
+            console.log(error)
+        })
+       }
+
+    </script>
+</body>
+</html>
