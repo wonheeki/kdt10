@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>socket.io</title>
+    <!-- socket.io cdn -->
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+       /* [실습2] 채팅창 UI */
+        .chat-list{
+            background-color: skyblue;
+            width:50%;
+            height: 500px;
+            padding:10px;
+            overflow-y:auto;
+        }
+        .chat-list div{
+            margin-top:3px;
+        }
+        .chat-list div div {
+            display: inline-block;
+            padding:3px;
+        }
+        .my-chat{
+            text-align: right;
+        }
+        .my-chat div{
+            background-color: yellow;
+        }
+        .other-chat{
+            text-align: left;
+        }
+        .other-chat div{
+            background-color: white;
+        }
+
+        /* [실습3] 채팅창 입장 안내 문구 */
+        .notice{
+            text-align: cneter;
+            color:#005397;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Chat</h1>
+
+    <!-- [실습1] 각 버튼 누를 때마다 서버로 메세지 보내기 -->
+    <!-- <button onclick="sayHello();">Hello</button>
+    <button onclick="sayStudy();">Study</button>
+    <button onclick="sayBye();">Bye</button>
+    <p id="server-result"></p> -->
+
+    <!-- [실습2] -->
+    <div class="chat-box">
+        <div class="chat-list">
+            <div class="my-chat">
+                <div>user1:msg1</div>
+            </div>
+            <div class="other-chat">
+                <div>user2:msg2</div>
+            </div>
+
+        </div>
+    </div>
+    <form>
+        <input type="text" id="message"><button type="button" onclick="send();">전송</button>
+    </form>
+
+    <script>
+        
+        
+        // 소켓 사용을 위한 객체 생성
+        const socket = io.connect();
+
+        socket.on('connect',()=>{
+            console.log('클라이언트 연결 완료 >', socket.id);
+        });
+
+        // [실습 1]
+        /*
+        // hello emit
+        const sayHello=()=>{
+            // 'hello'이벤트를 서버로 전송
+            socket.emit('hello',{who:'client', msg:'hello'});
+        }
+
+        // helloKR on
+        socket.on('helloKR',(data)=>{
+            console.log(data);
+            document.getElementById('server-result').textContent = `${data.who} : ${data.msg}`;
+        })
+
+        // study emit
+        const sayStudy=()=>{
+            socket.emit('study',{who:'client', msg:'study'});
+        }
+
+        // studyKR on
+        socket.on('studyKR',(data)=>{
+            console.log(data);
+            document.getElementById('server-result').textContent = `${data.who} : ${data.msg}`;
+        })
+
+        // bye emit
+        const sayBye=()=>{
+            socket.emit('bye',{who:'client', msg:'bye'});
+        }
+
+        // byeKR on
+        socket.on('byeKR',(data)=>{
+            console.log(data);
+            document.getElementById('server-result').textContent = `${data.who} : ${data.msg}`;
+        })
+        */
+
+        // [실습 3]
+        socket.on('notice',(msg)=>{
+            document.querySelector('.chat-list').insertAdjacentHTML(`beforeend`,`<div class="notice">${msg}</div>`)
+        })
+    </script>
+</body>
+</html>

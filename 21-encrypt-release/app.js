@@ -12,6 +12,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // TODO: express-session 미들웨어 등록
+app.use(session({
+  secret:"mySessionSecret",
+  resave: false,
+  saveUninitialized:true,
+  cookie:{
+      httpOnly:true,
+      maxAge :60*1000
+  }
+}))
+
 
 // TODO: routes/user 요청 경로 분리
 const userRouter = require('./routes/user');

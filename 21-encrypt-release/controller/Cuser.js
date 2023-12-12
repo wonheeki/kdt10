@@ -3,9 +3,10 @@ const {User} = require('../models/index');
 // TODO: bcrypt 패키지 불러오기
 const bcrypt = require('bcrypt');
 
+
 exports.index = (req, res) => {
   // index.ejs 렌더 (data 키로 session 객체의 userInfo 전달)
-  res.render('index');
+  res.render('index',{data:req.session.userInfo});
 };
 
 exports.getRegister = (req, res) => {
@@ -22,6 +23,14 @@ exports.getUsers = async (req, res) => {
   // 세션에 userInfo 데이터가 있다면; 전체 유저를 찾음
   // 세션에 userInfo 데이터가 없다면; /login 경로로 리다이렉트
   // -> 즉, 해당 요청은 로그인한 사람만 전체 유저를 조회할 수 있음
+  // if(req.session.userInfo ==''){
+  //   res.redirect('/login');
+  // }else{
+  //   await User.findAll({
+
+  //   })
+  // }
+
 };
 
 exports.getProfile = async (req, res) => {
@@ -57,10 +66,14 @@ exports.postLogin = async (req, res) => {
       // 2-1. 유저 있음
       // 2-1-1. 비밀번호 일치;
       //    userInfo 키 값으로 세션 생성 (userInfo는 name키와 id 키를 갖는 "객체")
+      req.session.userInfo = { id: user.id, name: user.name };
+      userInfo = req.session.userInfo;
+      console.log(req.session.userInfo, req.sessionID);
       //    응답 데이터: { result: true, data: step1에서 찾은 유저 }
       const result = await bcrypt.compare(pw, user.pw); // true or false
       if(result){
-        res.send({result:true, data:user});
+        // res.send({result:true, data:user});
+        res.send({result:true, data:userInfo});
       }else{
         // 2-1-2. 비밀번호 불일치;
         //    응답 데이터; { result: false, message: '비밀번호가 틀렸습니다.'
