@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #ffe7d1;
+  color: orange;
+  text-align: center;
+  font-size: 48px;
+  line-height: 100px;
+  height: 100px;
+}
+
+.form {
+  padding-top: 10px;
+  margin: 0 auto;
+  text-align: center;
+  height: 300px;
+}
