@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
+import CounterFunc from './CounterFunc';
+import SayFunction from './SayFunction';
+import StateEx1 from './StateEx1';
+import StateEx2 from './StateEx2';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter />
+      <hr />
+      <SayFunction />
+      <hr />
+      <CounterFunc />
+      <hr />
+      <StateEx1 />
+      <hr />
+      <StateEx2 />
     </div>
   );
 }
