@@ -1,0 +1,59 @@
+.larva {
+  position: relative;
+}
+.larva .body {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+.larva .body.body1 {
+  top: 100px;
+  left: 100px;
+  background-color: rgb(0, 0, 166);
+}
+.larva .body.body2 {
+  top: 150px;
+  left: 160px;
+  background-color: rgb(36, 61, 206);
+}
+.larva .body.body3 {
+  top: 190px;
+  left: 200px;
+  background-color: rgb(52, 118, 231);
+}
+.larva .body.body4 {
+  top: 240px;
+  left: 220px;
+  background-color: rgb(47, 146, 233);
+}
+.larva .body.body5 {
+  top: 280px;
+  left: 280px;
+  background-color: rgb(140, 191, 253);
+  z-index: 10;
+}
+.eye {
+  border-radius: 50%;
+}
+.eye-white {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 5px;
+}
+.eye-black {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  left: 5px;
+}
+.larva .grass {
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
