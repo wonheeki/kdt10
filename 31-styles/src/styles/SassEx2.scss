@@ -1,0 +1,60 @@
+$color-pink: pink;
+$color-yellow: yellow;
+$color-green: green;
+
+@mixin box() {
+  width: 30px;
+  height: 30px;
+}
+
+@mixin animation($name, $size) {
+  @keyframes #{$name} {
+    0% {
+      left: 0;
+      top: 0;
+    }
+    25% {
+      left: $size;
+      top: 0;
+    }
+    50% {
+      left: $size;
+      top: $size;
+    }
+    75% {
+      top: $size;
+      left: 0;
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.ex2-container {
+  width: 500px;
+  height: 500px;
+}
+
+.ex2-box {
+  border-radius: 50%;
+  @include box();
+  position: relative;
+  transition: all 0.3s;
+  &.pink {
+    background-color: $color-pink;
+    animation: pAni 5s infinite;
+    @include animation(pAni, 3vw);
+  }
+  &.yellow {
+    background-color: $color-yellow;
+    animation: yAni 5s infinite;
+    @include animation(yAni, 6vw);
+  }
+  &.green {
+    background-color: $color-green;
+    animation: gAni 5s infinite;
+    @include animation(gAni, 9vw);
+  }
+}

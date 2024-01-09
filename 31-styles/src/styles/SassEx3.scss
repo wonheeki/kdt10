@@ -1,0 +1,59 @@
+$color-blue: rgb(119, 164, 255);
+$color-gray: rgb(123, 123, 123);
+$color-black: rgba(0, 0, 0, 0.15);
+$color-white: rgb(243, 247, 255);
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.PostList header {
+  background-color: $color-blue;
+  color: $color-white;
+  text-shadow: 2px 2px 4px $color-black;
+  height: 80px;
+  line-height: 80px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.PostItem {
+  text-align: left;
+  width: 50%;
+  background-color: $color-white;
+  box-shadow: 4px 4px 10px $color-black;
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 40px auto;
+  .id {
+    font-weight: 500;
+    margin-right: 8px;
+    color: $color-blue;
+  }
+
+  .title {
+    color: rgb(123, 123, 123);
+  }
+
+  .body {
+    font-size: 20px;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+    transition: transform 0.4s;
+    .id,
+    .title {
+      font-weight: 700;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .PostItem {
+    width: 90vw;
+  }
+}

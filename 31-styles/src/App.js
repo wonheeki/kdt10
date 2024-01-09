@@ -1,6 +1,8 @@
 import CssModuleComponent from './CssModuleComponent';
+import PostList from './PostList';
 import SassComponent from './SassComponent';
 import SassEx1 from './SassEx1';
+import SassEx2 from './SassEx2';
 import './styles/App.css';
 
 function App() {
@@ -15,6 +17,12 @@ function App() {
       <hr />
       <h2>실습 1번</h2>
       <SassEx1 />
+      <hr />
+      <h2>실습 2번</h2>
+      <SassEx2 />
+      <hr />
+      <h2>실습 3번</h2>
+      <PostList />
     </div>
   );
 }
