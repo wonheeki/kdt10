@@ -24,7 +24,5 @@ function ProductDetailPage() {
       </ul>
     </>
   );
-
-  return <></>;
 }
 export default ProductDetailPage;
