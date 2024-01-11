@@ -2,7 +2,6 @@ import { createContext } from 'react';
 import UserProvider from './context/UserProvider';
 import UserProfile from './components/UserProfile';
 import Form from './components/Form';
-export const ThemeContext = createContext(null);
 
 function App() {
   const MyContext = createContext('defaultValue');
