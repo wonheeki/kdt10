@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function voRes1() {
+        const form = document.getElementById('form_vo1');
+        axios
+          .get(`/axios/vo/res1?name=${form.name.value}&age=${form.age.value}`)
+          .then((res) => {
+            console.log(res);
+          });
+      }
+
+      function voRes2() {
+        const form = document.getElementById('form_vo1');
+        axios
+          .get(`/axios/vo/res2?name=${form.name.value}&age=${form.age.value}`)
+          .then((res) => {
+            console.log(res);
+          });
+      }
+
+      function voRes3() {
+        const form = document.getElementById('form_vo2');
+        axios
+          .get(`/axios/vo/res3`, { name: form.name.value, age: form.age.value })
+          .then((res) => {
+            console.log(res);
+          });
+      }
+      function voRes4() {
+        const form = document.getElementById('form_vo2');
+        axios
+          .get(`/axios/vo/res4`, { name: form.name.value, age: form.age.value })
+          .then((res) => {
+            console.log(res);
+          });
+      }
+      function voRes5() {
+        const form = document.getElementById('form_vo2');
+        axios
+          .get(`/axios/vo/res5`, { name: form.name.value, age: form.age.value })
+          .then((res) => {
+            console.log(res);
+          });
+      }
+    </script>
+  </body>
+</html>
